@@ -1,26 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
-    android:width="512dp"
-    android:height="640dp"
-    android:viewportWidth="512"
-    android:viewportHeight="640">
+    android:width="180dp"
+    android:height="201dp"
+    android:viewportWidth="180"
+    android:viewportHeight="201">
 
-    <path
-        android:fillColor="#000000"
-        android:strokeColor="#000000"
-        android:strokeWidth="1"
-        android:strokeMiterLimit="10"
-        android:pathData="M 244.911 184.427 L 477.774 100.758 L 274.145 6 L 40.274 89.669 Z" />
-    <path
-        android:fillColor="#000000"
-        android:strokeColor="#000000"
-        android:strokeWidth="1"
-        android:strokeMiterLimit="10"
-        android:pathData="M 483.823 112.855 L 483.823 427.371 L 270.113 326.565 L 270.113 188.46 Z" />
-    <path
-        android:fillColor="#000000"
-        android:strokeColor="#000000"
-        android:strokeWidth="1"
-        android:strokeMiterLimit="10"
-        android:pathData="M 234.831 193.5 L 234.831 506 L 28.177 411.242 L 28.177 95.214 Z" />
+    <group
+        android:translateX="-777.000000"
+        android:translateY="-1972.000000">
+        <group
+            android:translateX="777.000000"
+            android:translateY="1972.000000">
+            <path
+                android:fillColor="#689F38"
+                android:fillType="evenOdd"
+                android:strokeWidth="1"
+                android:pathData="M 4.335 34.151 L 84.408 72.305 L 178.002 38.731 L 97.251 0.468 Z" />
+            <path
+                android:fillColor="#689F38"
+                android:fillType="evenOdd"
+                android:strokeWidth="1"
+                android:pathData="M 0.302 161.736 L 82.462 200.468 L 82.462 76.056 L 0.302 36.618 Z" />
+            <path
+                android:fillColor="#689F38"
+                android:fillType="evenOdd"
+                android:strokeWidth="1"
+                android:pathData="M 95.607 72.3 L 95.607 128.402 L 179.176 167.84 L 179.176 42.722 Z" />
+        </group>
+    </group>
 </vector>

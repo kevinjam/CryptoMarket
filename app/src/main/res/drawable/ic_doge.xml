@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="201dp"
+    android:height="201dp"
+    android:viewportWidth="201"
+    android:viewportHeight="201">
+
+    <group
+        android:translateX="-408.000000"
+        android:translateY="-4265.000000">
+        <group
+            android:translateX="408.000000"
+            android:translateY="4265.000000">
+            <path
+                android:fillColor="#C3A723"
+                android:fillType="evenOdd"
+                android:strokeWidth="1"
+                android:pathData="M200.9363,100.9847 C200.9363,156.2127 156.1653,200.9847 100.9363,200.9847 C45.7083,200.9847 0.9363,156.2127 0.9363,100.9847 C0.9363,45.7557 45.7083,0.9847 100.9363,0.9847 C156.1653,0.9847 200.9363,45.7557 200.9363,100.9847" />
+            <path
+                android:fillColor="#FFFFFF"
+                android:fillType="evenOdd"
+                android:strokeWidth="1"
+                android:pathData="M111.2517,135.0657 L89.1507,135.0657 L89.1507,106.5677 L111.0667,106.5677 L111.0667,95.0677 L89.1507,95.0677 L89.1507,67.0707 L109.9197,67.0707 C109.9197,67.0707 135.4827,67.0707 135.4827,98.7077 C135.4827,136.0097 111.2517,135.0657 111.2517,135.0657 M107.8167,47.0677 L68.8167,47.0677 L68.8167,95.0677 L55.8167,95.0677 L55.8167,106.5677 L68.8167,106.5677 L68.8167,155.0677 L110.3167,155.0677 C110.3167,155.0677 155.8167,156.5677 155.8167,97.3177 C155.8167,47.0677 107.8167,47.0677 107.8167,47.0677" />
+        </group>
+    </group>
+</vector>

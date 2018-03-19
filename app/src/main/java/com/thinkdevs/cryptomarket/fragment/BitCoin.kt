@@ -10,6 +10,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ProgressBar
 
 import com.thinkdevs.cryptomarket.R
 import com.thinkdevs.cryptomarket.adapter.BitCoinAdapter
@@ -25,10 +26,13 @@ import io.reactivex.schedulers.Schedulers
  */
 class BitCoin : Fragment() {
 	lateinit var bitcoin_rec: RecyclerView
+	lateinit var progress:ProgressBar
 	var composite: CompositeDisposable?=null
 	override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 		val view = inflater!!.inflate(R.layout.bit_coin, container, false)
 		bitcoin_rec = view.findViewById(R.id.bitcoin_rec)
+		progress = view.findViewById(R.id.progress)
+
 		bitcoin_rec.setHasFixedSize(true)
 		val layoutManager : RecyclerView.LayoutManager = LinearLayoutManager(activity)
 		bitcoin_rec.layoutManager = layoutManager
@@ -39,6 +43,8 @@ class BitCoin : Fragment() {
 	}
 	
 	fun getBitcoins() {
+		progress.visibility = View.VISIBLE
+		bitcoin_rec.visibility=View.GONE
 		val apiservice = Helper.mainUrl()
 		composite!!.add(apiservice.getbitcoin()
 				.observeOn(AndroidSchedulers.mainThread())
@@ -46,6 +52,10 @@ class BitCoin : Fragment() {
 				.subscribe(
 						{ result ->
 							handlResponse(result)
+							progress.visibility = View.GONE
+							bitcoin_rec.visibility=View.VISIBLE
+							
+							
 						}, { error ->
 					handleError(error)
 				}

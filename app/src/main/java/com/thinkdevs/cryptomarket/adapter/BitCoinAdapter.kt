@@ -1,12 +1,15 @@
 package com.thinkdevs.cryptomarket.adapter
 
 import android.content.Context
+import android.content.Intent
+import android.support.constraint.ConstraintLayout
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import com.thinkdevs.cryptomarket.CoinActivity
 import com.thinkdevs.cryptomarket.R
 import com.thinkdevs.cryptomarket.model.CryptoModel
 
@@ -35,12 +38,16 @@ class BitCoinAdapter(var context: Context, var list: ArrayList<CryptoModel>) : R
 		val priceCoin = itemView!!.findViewById<TextView>(R.id.priceCoin)
 		val changeCoin = itemView!!.findViewById<TextView>(R.id.changeCoin)
 		val coinImage = itemView!!.findViewById<ImageView>(R.id.coinImage)
+		val id_more = itemView!!.findViewById<ConstraintLayout>(R.id.id_more)
+		
 		
 		fun bindview(model: CryptoModel, context: Context) {
 			coinName.text = model.name
 			marketcoin.text = "$ ${model.market_cap_usd}"
 			priceCoin.text = "$ ${model.price_usd}"
 			changeCoin.text ="${model.percent_change_24h} %"
+			
+		
 			
 			when {
 				model.symbol == "BTC" -> {
@@ -145,6 +152,297 @@ class BitCoinAdapter(var context: Context, var list: ArrayList<CryptoModel>) : R
 					coinImage.setImageResource(resouldId)
 				}
 				
+				model.symbol == "BLOCK" -> {
+					val resouldId = context.resources.getIdentifier("ic_block", "drawable", context.packageName)
+					coinImage.setImageResource(resouldId)
+				}
+				
+				model.symbol == "BNB" -> {
+					val resouldId = context.resources.getIdentifier("ic_bnb", "drawable", context.packageName)
+					coinImage.setImageResource(resouldId)
+				}
+				
+				model.symbol == "BTCD" -> {
+					val resouldId = context.resources.getIdentifier("ic_btcd", "drawable", context.packageName)
+					coinImage.setImageResource(resouldId)
+				}
+				
+				model.symbol == "BTG" -> {
+					val resouldId = context.resources.getIdentifier("ic_btg", "drawable", context.packageName)
+					coinImage.setImageResource(resouldId)
+				}
+				
+				model.symbol == "CVC" -> {
+					val resouldId = context.resources.getIdentifier("ic_cvc", "drawable", context.packageName)
+					coinImage.setImageResource(resouldId)
+				}
+				
+				model.symbol == "DASH" -> {
+					val resouldId = context.resources.getIdentifier("ic_dash", "drawable", context.packageName)
+					coinImage.setImageResource(resouldId)
+				}
+				model.symbol == "DGB" -> {
+					val resouldId = context.resources.getIdentifier("ic_dgb", "drawable", context.packageName)
+					coinImage.setImageResource(resouldId)
+				}
+				model.symbol == "DOGE" -> {
+					val resouldId = context.resources.getIdentifier("ic_doge", "drawable", context.packageName)
+					coinImage.setImageResource(resouldId)
+				}
+				model.symbol == "EDG" -> {
+					val resouldId = context.resources.getIdentifier("ic_edg", "drawable", context.packageName)
+					coinImage.setImageResource(resouldId)
+				}
+				model.symbol == "EMC2" -> {
+					val resouldId = context.resources.getIdentifier("ic_emc2", "drawable", context.packageName)
+					coinImage.setImageResource(resouldId)
+				}
+				model.symbol == "ETC" -> {
+					val resouldId = context.resources.getIdentifier("ic_etc", "drawable", context.packageName)
+					coinImage.setImageResource(resouldId)
+				}
+				
+				model.symbol == "ETHOS" -> {
+					val resouldId = context.resources.getIdentifier("ic_ethos", "drawable", context.packageName)
+					coinImage.setImageResource(resouldId)
+				}
+				model.symbol == "ETP" -> {
+					val resouldId = context.resources.getIdentifier("ic_etp", "drawable", context.packageName)
+					coinImage.setImageResource(resouldId)
+				}
+				model.symbol == "FUN" -> {
+					val resouldId = context.resources.getIdentifier("ic_fun", "drawable", context.packageName)
+					coinImage.setImageResource(resouldId)
+				}
+				model.symbol == "GAME" -> {
+					val resouldId = context.resources.getIdentifier("ic_game", "drawable", context.packageName)
+					coinImage.setImageResource(resouldId)
+				}
+				model.symbol == "GAS" -> {
+					val resouldId = context.resources.getIdentifier("ic_gas", "drawable", context.packageName)
+					coinImage.setImageResource(resouldId)
+				}
+				model.symbol == "GBYTE" -> {
+					val resouldId = context.resources.getIdentifier("ic_gbyte", "drawable", context.packageName)
+					coinImage.setImageResource(resouldId)
+				}
+				model.symbol == "GNO" -> {
+					val resouldId = context.resources.getIdentifier("ic_gno", "drawable", context.packageName)
+					coinImage.setImageResource(resouldId)
+				}
+				model.symbol == "GNT" -> {
+					val resouldId = context.resources.getIdentifier("ic_gnt", "drawable", context.packageName)
+					coinImage.setImageResource(resouldId)
+				}
+				model.symbol == "GRS" -> {
+					val resouldId = context.resources.getIdentifier("ic_grs", "drawable", context.packageName)
+					coinImage.setImageResource(resouldId)
+				}
+				
+				model.symbol == "HSR" -> {
+					val resouldId = context.resources.getIdentifier("ic_hsr", "drawable", context.packageName)
+					coinImage.setImageResource(resouldId)
+				}
+				model.symbol == "ICN" -> {
+					val resouldId = context.resources.getIdentifier("ic_icn", "drawable", context.packageName)
+					coinImage.setImageResource(resouldId)
+				}
+				model.symbol == "KMD" -> {
+					val resouldId = context.resources.getIdentifier("ic_kmd", "drawable", context.packageName)
+					coinImage.setImageResource(resouldId)
+				}
+				model.symbol == "KNC" -> {
+					val resouldId = context.resources.getIdentifier("ic_knc", "drawable", context.packageName)
+					coinImage.setImageResource(resouldId)
+				}
+				model.symbol == "LSK" -> {
+					val resouldId = context.resources.getIdentifier("ic_lsk", "drawable", context.packageName)
+					coinImage.setImageResource(resouldId)
+				}
+				model.symbol == "MAID" -> {
+					val resouldId = context.resources.getIdentifier("ic_maid", "drawable", context.packageName)
+					coinImage.setImageResource(resouldId)
+				}
+				model.symbol == "MCO" -> {
+					val resouldId = context.resources.getIdentifier("ic_mco", "drawable", context.packageName)
+					coinImage.setImageResource(resouldId)
+				}
+				model.symbol == "MNX" -> {
+					val resouldId = context.resources.getIdentifier("ic_mnx", "drawable", context.packageName)
+					coinImage.setImageResource(resouldId)
+				}
+				model.symbol == "MONA" -> {
+					val resouldId = context.resources.getIdentifier("ic_mona", "drawable", context.packageName)
+					coinImage.setImageResource(resouldId)
+				}
+				model.symbol == "MTL" -> {
+					val resouldId = context.resources.getIdentifier("ic_mtl", "drawable", context.packageName)
+					coinImage.setImageResource(resouldId)
+				}
+				model.symbol == "NAV" -> {
+					val resouldId = context.resources.getIdentifier("ic_nav", "drawable", context.packageName)
+					coinImage.setImageResource(resouldId)
+				}
+				model.symbol == "NXS" -> {
+					val resouldId = context.resources.getIdentifier("ic_nxs", "drawable", context.packageName)
+					coinImage.setImageResource(resouldId)
+				}
+				model.symbol == "NXT" -> {
+					val resouldId = context.resources.getIdentifier("ic_nxt", "drawable", context.packageName)
+					coinImage.setImageResource(resouldId)
+				}
+				model.symbol == "OMG" -> {
+					val resouldId = context.resources.getIdentifier("ic_omg", "drawable", context.packageName)
+					coinImage.setImageResource(resouldId)
+				}
+				model.symbol == "PAY" -> {
+					val resouldId = context.resources.getIdentifier("ic_pay", "drawable", context.packageName)
+					coinImage.setImageResource(resouldId)
+				}
+				model.symbol == "PIVX" -> {
+					val resouldId = context.resources.getIdentifier("ic_pivx", "drawable", context.packageName)
+					coinImage.setImageResource(resouldId)
+				}
+				
+				model.symbol == "POT" -> {
+					val resouldId = context.resources.getIdentifier("ic_pot", "drawable", context.packageName)
+					coinImage.setImageResource(resouldId)
+				}
+				model.symbol == "POWER" -> {
+					val resouldId = context.resources.getIdentifier("ic_power", "drawable", context.packageName)
+					coinImage.setImageResource(resouldId)
+				}
+				model.symbol == "PPC" -> {
+					val resouldId = context.resources.getIdentifier("ic_ppc", "drawable", context.packageName)
+					coinImage.setImageResource(resouldId)
+				}
+				model.symbol == "PPT" -> {
+					val resouldId = context.resources.getIdentifier("ic_ppt", "drawable", context.packageName)
+					coinImage.setImageResource(resouldId)
+				}
+				model.symbol == "PURA" -> {
+					val resouldId = context.resources.getIdentifier("ic_pura", "drawable", context.packageName)
+					coinImage.setImageResource(resouldId)
+				}
+				model.symbol == "QASH" -> {
+					val resouldId = context.resources.getIdentifier("ic_qash", "drawable", context.packageName)
+					coinImage.setImageResource(resouldId)
+				}
+				model.symbol == "QTUM" -> {
+					val resouldId = context.resources.getIdentifier("ic_qtum", "drawable", context.packageName)
+					coinImage.setImageResource(resouldId)
+				}
+				model.symbol == "RDN" -> {
+					val resouldId = context.resources.getIdentifier("ic_rdn", "drawable", context.packageName)
+					coinImage.setImageResource(resouldId)
+				}
+				model.symbol == "REP" -> {
+					val resouldId = context.resources.getIdentifier("ic_rep", "drawable", context.packageName)
+					coinImage.setImageResource(resouldId)
+				}
+				
+				model.symbol == "SALT" -> {
+					val resouldId = context.resources.getIdentifier("ic_salt", "drawable", context.packageName)
+					coinImage.setImageResource(resouldId)
+				}
+				model.symbol == "SAN" -> {
+					val resouldId = context.resources.getIdentifier("ic_san", "drawable", context.packageName)
+					coinImage.setImageResource(resouldId)
+				}
+				model.symbol == "SNGLS" -> {
+					val resouldId = context.resources.getIdentifier("ic_sngls", "drawable", context.packageName)
+					coinImage.setImageResource(resouldId)
+				}
+				model.symbol == "SNT" -> {
+					val resouldId = context.resources.getIdentifier("ic_snt", "drawable", context.packageName)
+					coinImage.setImageResource(resouldId)
+				}
+				model.symbol == "START" -> {
+					val resouldId = context.resources.getIdentifier("ic_start", "drawable", context.packageName)
+					coinImage.setImageResource(resouldId)
+				}
+				model.symbol == "STORJ" -> {
+					val resouldId = context.resources.getIdentifier("ic_storj", "drawable", context.packageName)
+					coinImage.setImageResource(resouldId)
+				}
+				model.symbol == "SYS" -> {
+					val resouldId = context.resources.getIdentifier("ic_sys", "drawable", context.packageName)
+					coinImage.setImageResource(resouldId)
+				}
+				model.symbol == "TRX" -> {
+					val resouldId = context.resources.getIdentifier("ic_trx", "drawable", context.packageName)
+					coinImage.setImageResource(resouldId)
+				}
+				model.symbol == "UBQ" -> {
+					val resouldId = context.resources.getIdentifier("ic_ubq", "drawable", context.packageName)
+					coinImage.setImageResource(resouldId)
+				}
+				
+				model.symbol == "USDT" -> {
+					val resouldId = context.resources.getIdentifier("ic_usdt", "drawable", context.packageName)
+					coinImage.setImageResource(resouldId)
+				}
+				
+				model.symbol == "VEN" -> {
+					val resouldId = context.resources.getIdentifier("ic_ven", "drawable", context.packageName)
+					coinImage.setImageResource(resouldId)
+				}
+				model.symbol == "VTC" -> {
+					val resouldId = context.resources.getIdentifier("ic_vtc", "drawable", context.packageName)
+					coinImage.setImageResource(resouldId)
+				}
+				model.symbol == "WTC" -> {
+					val resouldId = context.resources.getIdentifier("ic_wtc", "drawable", context.packageName)
+					coinImage.setImageResource(resouldId)
+				}
+				model.symbol == "XEM" -> {
+					val resouldId = context.resources.getIdentifier("ic_xem", "drawable", context.packageName)
+					coinImage.setImageResource(resouldId)
+				}
+				model.symbol == "XLM" -> {
+					val resouldId = context.resources.getIdentifier("ic_xlm", "drawable", context.packageName)
+					coinImage.setImageResource(resouldId)
+				}
+				model.symbol == "XMR" -> {
+					val resouldId = context.resources.getIdentifier("ic_xmr", "drawable", context.packageName)
+					coinImage.setImageResource(resouldId)
+				}
+				model.symbol == "XRP" -> {
+					val resouldId = context.resources.getIdentifier("ic_xrp", "drawable", context.packageName)
+					coinImage.setImageResource(resouldId)
+				}
+				model.symbol == "XUC" -> {
+					val resouldId = context.resources.getIdentifier("ic_xuc", "drawable", context.packageName)
+					coinImage.setImageResource(resouldId)
+				}
+				model.symbol == "XVG" -> {
+					val resouldId = context.resources.getIdentifier("ic_xvg", "drawable", context.packageName)
+					coinImage.setImageResource(resouldId)
+				}
+				model.symbol == "XZC" -> {
+					val resouldId = context.resources.getIdentifier("ic_xzc", "drawable", context.packageName)
+					coinImage.setImageResource(resouldId)
+				}
+				
+				model.symbol == "ZEC" -> {
+					val resouldId = context.resources.getIdentifier("ic_zec", "drawable", context.packageName)
+					coinImage.setImageResource(resouldId)
+				}
+				model.symbol == "ZEN" -> {
+					val resouldId = context.resources.getIdentifier("ic_zen", "drawable", context.packageName)
+					coinImage.setImageResource(resouldId)
+				}
+				model.symbol == "ZRX" -> {
+					val resouldId = context.resources.getIdentifier("ic_zrx", "drawable", context.packageName)
+					coinImage.setImageResource(resouldId)
+				}
+			}
+			
+			id_more.setOnClickListener {
+			
+				val intent=Intent(context, CoinActivity::class.java)
+				intent.putExtra("coin", model)
+				context.startActivity(intent)
 			}
 			
 		}

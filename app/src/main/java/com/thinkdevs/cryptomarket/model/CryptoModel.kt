@@ -1,5 +1,7 @@
 package com.thinkdevs.cryptomarket.model
 
+import java.io.Serializable
+
 /**
  * Created by kevinjanvier on 19/03/2018.
  */
@@ -21,4 +23,5 @@ data class CryptoModel(
 		
 		
 		
-		)
+		):Serializable
+
