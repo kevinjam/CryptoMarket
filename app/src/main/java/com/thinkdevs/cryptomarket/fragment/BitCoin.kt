@@ -70,8 +70,7 @@ class BitCoin : Fragment() {
 	}
 	
 	private fun handleError(error: Throwable) {
-		Log.e("", "EEEEE")
-		
+	
 	
 	}
 	

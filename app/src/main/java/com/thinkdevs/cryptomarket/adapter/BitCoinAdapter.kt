@@ -9,8 +9,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import com.thinkdevs.cryptomarket.CoinActivity
 import com.thinkdevs.cryptomarket.R
+import com.thinkdevs.cryptomarket.constant.COIN_DETAILS
+import com.thinkdevs.cryptomarket.controller.MoreActivity
 import com.thinkdevs.cryptomarket.model.CryptoModel
 
 /**
@@ -440,8 +441,8 @@ class BitCoinAdapter(var context: Context, var list: ArrayList<CryptoModel>) : R
 			
 			id_more.setOnClickListener {
 			
-				val intent=Intent(context, CoinActivity::class.java)
-				intent.putExtra("coin", model)
+				val intent=Intent(context, MoreActivity::class.java)
+				intent.putExtra(COIN_DETAILS, model)
 				context.startActivity(intent)
 			}
 			

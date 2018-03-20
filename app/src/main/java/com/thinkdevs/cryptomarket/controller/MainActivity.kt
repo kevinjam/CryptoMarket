@@ -1,5 +1,7 @@
-package com.thinkdevs.cryptomarket
+package com.thinkdevs.cryptomarket.controller
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.support.design.widget.NavigationView
 import android.support.design.widget.TabLayout
@@ -8,6 +10,7 @@ import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import com.thinkdevs.cryptomarket.R
 import com.thinkdevs.cryptomarket.adapter.TabPagerAdapter
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
@@ -96,7 +99,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 			
 			}
 			R.id.nav_share -> {
-			
+			share()
 			}
 			
 		}
@@ -104,4 +107,15 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 		drawer_layout.closeDrawer(GravityCompat.START)
 		return true
 	}
+	
+	private fun share() {
+		val message = "https://play.google.com/store/apps/details?id=$packageName"
+		val share = Intent(Intent.ACTION_SEND)
+		share.type = "text/plain"
+		share.putExtra(Intent.EXTRA_TITLE, "LiveScore App")
+		share.putExtra(Intent.EXTRA_TEXT, "Hey, check Crypto Market App" + " "
+				+ Uri.parse(message))
+		startActivity(Intent.createChooser(share, "Share Via : "))
+	}
+	
 }

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.thinkdevs.cryptomarket.MainActivity"
+    tools:context="com.thinkdevs.cryptomarket.controller.MainActivity"
     tools:showIn="@layout/app_bar_main">
 
 
@@ -30,4 +30,15 @@
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         />
 
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/colorAccent"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+    </LinearLayout>
 </android.support.constraint.ConstraintLayout>

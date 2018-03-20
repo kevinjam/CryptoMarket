@@ -12,6 +12,7 @@ data class CryptoModel(
 		val rank:String,
 		val price_usd:String,
 		val price_btc:String,
+		val h_volume_usd:String,
 		val market_cap_usd:String,
 		val available_supply:String,
 		val total_supply:String,

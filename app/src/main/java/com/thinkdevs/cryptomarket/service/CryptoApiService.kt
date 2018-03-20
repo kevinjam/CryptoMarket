@@ -1,4 +1,4 @@
-package com.thinkdevs.cryptomarket
+package com.thinkdevs.cryptomarket.service
 
 import com.thinkdevs.cryptomarket.model.CryptoModel
 import io.reactivex.Observable
