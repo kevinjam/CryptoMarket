@@ -37,7 +37,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 		toggle.syncState()
 		
 		nav_view.setNavigationItemSelectedListener(this)
-		
 		configureTabLayout()
 //		setDefaultFragment()
 		
@@ -97,24 +96,24 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 		// Handle navigation view item clicks here.
 		when (item.itemId) {
 			R.id.nav_home -> {
-				val global = BitCoin()
-				val manager :FragmentManager = supportFragmentManager
-				manager.beginTransaction()
-						.replace(R.id.mainRelative, global).commit()
+//				val global = BitCoin()
+//				val manager :FragmentManager = supportFragmentManager
+//				manager.beginTransaction()
+//						.replace(R.id.mainRelative, global).commit()
 			}
 			R.id.nav_global -> {
-				val global = NewsFragment()
-				val manager :FragmentManager = supportFragmentManager
-				manager.beginTransaction()
-						.replace(R.id.mainRelative, global).commit()
-			
+				startActivity(Intent(this@MainActivity, HomeActivity::class.java))
+				
+				
 			}
 			R.id.nav_news -> {
 				
-				val global = GlobalMarker()
-				val manager :FragmentManager = supportFragmentManager
-				manager.beginTransaction()
-						.replace(R.id.mainRelative, global, global.tag).commit()
+//				val global = GlobalMarker()
+//				val manager :FragmentManager = supportFragmentManager
+//				manager.beginTransaction()
+//						.replace(R.id.mainRelative, global, global.tag).commit()
+				startActivity(Intent(this@MainActivity, HomeActivity::class.java))
+				
 			}
 			R.id.nav_portfolio -> {
 			
