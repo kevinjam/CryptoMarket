@@ -63,7 +63,6 @@ class BitCoin : Fragment() {
 	}
 	
 	private fun handlResponse(list:ArrayList<CryptoModel>) {
-		Log.e("","Gandler Response $list")
 		val adapter = BitCoinAdapter(activity.applicationContext, list)
 		bitcoin_rec.adapter = adapter
 	

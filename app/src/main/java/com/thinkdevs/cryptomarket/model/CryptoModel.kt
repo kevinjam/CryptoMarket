@@ -7,8 +7,8 @@ import java.io.Serializable
  */
 data class CryptoModel(
 		val id: String,
-		val name: String,
-		val symbol: String,
+		var name: String,
+		var symbol: String,
 		val rank: String,
 		val price_usd: String,
 		val price_btc: String,
@@ -21,7 +21,20 @@ data class CryptoModel(
 		val percent_change_24h: String,
 		val percent_change_7d: String,
 		val last_updated: String
-) : Serializable
+) : Serializable {
+	
+	constructor(name: String, symbol: String) : this(name, symbol, "", "", "", ""
+			, "", "", "", "", "", "", ""
+			, "", "") {
+	}
+	
+	override fun toString(): String {
+		return "$name ($symbol)"
+	}
+	
+	
+}
+
 
 
 class GlobalMarket(
@@ -36,7 +49,7 @@ class GlobalMarket(
 
 
 class Articles(var source: SourceModel, var author: String, var title: String,
-			   var description: String, var url: String, var urlToImage: String, var publishedAt: String):Serializable
+			   var description: String, var url: String, var urlToImage: String, var publishedAt: String) : Serializable
 
-class SourceModel(var id: String, var name: String):Serializable
+class SourceModel(var id: String, var name: String) : Serializable
 

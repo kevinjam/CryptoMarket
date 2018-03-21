@@ -102,16 +102,16 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 				
 			}
 			R.id.nav_news -> {
-				
-//				val global = GlobalMarker()
-//				val manager :FragmentManager = supportFragmentManager
-//				manager.beginTransaction()
-//						.replace(R.id.mainRelative, global, global.tag).commit()
 				startActivity(Intent(this@MainActivity, NewsActivity::class.java))
 				
 			}
 			R.id.nav_portfolio -> {
 			
+			}
+			
+			R.id.nav_converter->{
+				startActivity(Intent(this@MainActivity, ConverterActivity::class.java))
+				
 			}
 			R.id.nav_share -> {
 				share()

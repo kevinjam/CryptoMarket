@@ -22,6 +22,7 @@ class NewsDetails : AppCompatActivity() {
 		setContentView(R.layout.activity_news_details)
 		
 		news_toolbar.coinImage.visibility = View.GONE
+		
 		news_toolbar.nav_nack.setOnClickListener {
 			onBackPressed()
 		}
