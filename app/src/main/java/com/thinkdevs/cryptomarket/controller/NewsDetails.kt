@@ -35,7 +35,7 @@ class NewsDetails : AppCompatActivity() {
 		
 		news_toolbar.coinName.text =model.source.name
 		
-		
+		share(model)
 		Glide.with(this@NewsDetails).load(model.urlToImage).into(news_image)
 		
 		openweb.setOnClickListener {
@@ -55,6 +55,19 @@ class NewsDetails : AppCompatActivity() {
 			e.printStackTrace()
 		}
 		
+	}
+	
+	
+	private fun share(model: Articles) {
+		val message = model.description
+		val share = Intent(Intent.ACTION_SEND)
+		share.type = "text/plain"
+		share.putExtra(Intent.EXTRA_TITLE, "Latest Bitcoin (BTC) details")
+		share.putExtra(Intent.EXTRA_TITLE, "Price: $ ${model.title}")
+		share.putExtra(Intent.EXTRA_TEXT, "Price (BTC):฿ ${model.source.name}")
+		share.putExtra(Intent.EXTRA_TEXT, "Hey checkout this  : " + "${model.url}"
+				+ Uri.parse(message))
+		startActivity(Intent.createChooser(share, "Shared via : "))
 	}
 	
 	override fun onBackPressed() {

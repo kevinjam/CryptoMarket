@@ -25,7 +25,9 @@
         <activity android:name=".controller.HomeActivity" />
         <activity android:name=".controller.GlobalMarketActivity" />
         <activity android:name=".controller.NewsActivity" />
-        <activity android:name=".controller.NewsDetails"></activity>
+        <activity android:name=".controller.NewsDetails" />
+        <activity android:name=".controller.ConverterActivity" />
+        <activity android:name=".controller.FullListActivity"></activity>
     </application>
 
 </manifest>

@@ -75,5 +75,6 @@ class NewsActivity : AppCompatActivity() {
 		super.onBackPressed()
 	}
 	
+	//Check this news : newsTitle
 	
 }
