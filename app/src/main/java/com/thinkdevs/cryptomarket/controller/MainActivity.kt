@@ -5,8 +5,6 @@ import android.net.Uri
 import android.os.Bundle
 import android.support.design.widget.NavigationView
 import android.support.design.widget.TabLayout
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentManager
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
@@ -14,9 +12,6 @@ import android.view.Menu
 import android.view.MenuItem
 import com.thinkdevs.cryptomarket.R
 import com.thinkdevs.cryptomarket.adapter.TabPagerAdapter
-import com.thinkdevs.cryptomarket.fragment.BitCoin
-import com.thinkdevs.cryptomarket.fragment.GlobalMarker
-import com.thinkdevs.cryptomarket.fragment.NewsFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 import kotlinx.android.synthetic.main.content_main.*
@@ -102,7 +97,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 //						.replace(R.id.mainRelative, global).commit()
 			}
 			R.id.nav_global -> {
-				startActivity(Intent(this@MainActivity, HomeActivity::class.java))
+				startActivity(Intent(this@MainActivity, GlobalMarketActivity::class.java))
 				
 				
 			}
@@ -112,7 +107,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 //				val manager :FragmentManager = supportFragmentManager
 //				manager.beginTransaction()
 //						.replace(R.id.mainRelative, global, global.tag).commit()
-				startActivity(Intent(this@MainActivity, HomeActivity::class.java))
+				startActivity(Intent(this@MainActivity, NewsActivity::class.java))
 				
 			}
 			R.id.nav_portfolio -> {

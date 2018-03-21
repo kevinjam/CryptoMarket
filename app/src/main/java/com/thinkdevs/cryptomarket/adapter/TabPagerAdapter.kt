@@ -14,9 +14,9 @@ class TabPagerAdapter(fm:FragmentManager, private var tabcount:Int):FragmentPage
 		return when(position){
 			0-> BitCoin()
 			1-> NewsFragment()
-			2-> BitCoin()
-			4-> BitCoin()
-			else-> null
+			2-> NewsFragment()
+			3-> NewsFragment()
+			else-> BitCoin()
 			
 		}
 	}

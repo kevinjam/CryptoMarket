@@ -1,12 +1,10 @@
 package com.thinkdevs.cryptomarket.service
 
 import com.thinkdevs.cryptomarket.model.CryptoModel
+import com.thinkdevs.cryptomarket.model.GlobalMarket
+import com.thinkdevs.cryptomarket.model.NewsModel
 import io.reactivex.Observable
 import retrofit2.http.GET
-import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
-import retrofit2.Retrofit
-
 
 
 /**
@@ -17,6 +15,12 @@ interface CryptoApiService {
 	
 	fun getbitcoin(): Observable<ArrayList<CryptoModel>>
 	
+	
+	@GET("global")
+	fun getglobal(): Observable<GlobalMarket>
+	
+	@GET("top-headlines?sources=crypto-coins-news&apiKey=2f93de87387d400f9bd7d3028aef6213")
+	fun getnews(): Observable<NewsModel>
 	
 	
 }
