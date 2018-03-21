@@ -21,11 +21,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".controller.CoinActivity"
-            android:label="@string/title_activity_coin"
-            android:theme="@style/AppTheme" />
-        <activity android:name=".controller.MoreActivity"></activity>
+
+        <activity android:name=".controller.MoreActivity" />
     </application>
 
 </manifest>

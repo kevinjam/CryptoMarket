@@ -5,6 +5,8 @@ import android.net.Uri
 import android.os.Bundle
 import android.support.design.widget.NavigationView
 import android.support.design.widget.TabLayout
+import android.support.v4.app.Fragment
+import android.support.v4.app.FragmentManager
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
@@ -12,9 +14,13 @@ import android.view.Menu
 import android.view.MenuItem
 import com.thinkdevs.cryptomarket.R
 import com.thinkdevs.cryptomarket.adapter.TabPagerAdapter
+import com.thinkdevs.cryptomarket.fragment.BitCoin
+import com.thinkdevs.cryptomarket.fragment.GlobalMarker
+import com.thinkdevs.cryptomarket.fragment.NewsFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 import kotlinx.android.synthetic.main.content_main.*
+
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 	
@@ -22,8 +28,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 		super.onCreate(savedInstanceState)
 		setContentView(R.layout.activity_main)
 		setSupportActionBar(toolbar)
+		supportActionBar!!.title = "Home "
 		
-	
+		
 		val toggle = ActionBarDrawerToggle(
 				this, drawer_layout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
 		drawer_layout.addDrawerListener(toggle)
@@ -32,6 +39,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 		nav_view.setNavigationItemSelectedListener(this)
 		
 		configureTabLayout()
+//		setDefaultFragment()
+		
 	}
 	
 	private fun configureTabLayout() {
@@ -83,23 +92,35 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 		}
 	}
 	
+	
 	override fun onNavigationItemSelected(item: MenuItem): Boolean {
 		// Handle navigation view item clicks here.
 		when (item.itemId) {
 			R.id.nav_home -> {
-				// Handle the camera action
+				val global = BitCoin()
+				val manager :FragmentManager = supportFragmentManager
+				manager.beginTransaction()
+						.replace(R.id.mainRelative, global).commit()
 			}
 			R.id.nav_global -> {
+				val global = NewsFragment()
+				val manager :FragmentManager = supportFragmentManager
+				manager.beginTransaction()
+						.replace(R.id.mainRelative, global).commit()
 			
 			}
 			R.id.nav_news -> {
-			
+				
+				val global = GlobalMarker()
+				val manager :FragmentManager = supportFragmentManager
+				manager.beginTransaction()
+						.replace(R.id.mainRelative, global, global.tag).commit()
 			}
 			R.id.nav_portfolio -> {
 			
 			}
 			R.id.nav_share -> {
-			share()
+				share()
 			}
 			
 		}
