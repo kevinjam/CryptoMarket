@@ -29,14 +29,15 @@ class NewsDetails : AppCompatActivity() {
 		
 		val model = intent.getSerializableExtra(NEWS_DETAILS) as Articles
 //
-		news_title.text = model.source.name
+		news_title_sub.text = model.source.name
 		news_date.text = model.publishedAt
 		news_title.text = model.title
 		news_description.text = model.description
 		
 		news_toolbar.coinName.text =model.source.name
+		news_toolbar.nav_share.setOnClickListener { share(model) }
 		
-		share(model)
+		
 		Glide.with(this@NewsDetails).load(model.urlToImage).into(news_image)
 		
 		openweb.setOnClickListener {

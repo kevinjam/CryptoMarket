@@ -55,7 +55,7 @@ class RippleCoin : Fragment() {
 	}
 	
 	private fun handlResponse(result: ArrayList<Crypto>) {
-		println("Results goes here $result")
+		println("Ripple ----Results goes here $result")
 		
 		result.forEach { model ->
 			coin_name.text = model.name

@@ -23,9 +23,11 @@
         android:id="@+id/coinImage"
         android:layout_width="60dp"
         android:layout_height="60dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:src="@drawable/ic_ethereum"
+        app:layout_constraintBottom_toTopOf="@+id/gridLayout2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -48,6 +50,8 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:text="Ethereum"
+        android:textColor="@color/colorPrimary"
+        android:textSize="14sp"
         app:layout_constraintEnd_toStartOf="@+id/coin_prince"
         app:layout_constraintHorizontal_bias="0.111"
         app:layout_constraintStart_toEndOf="@+id/coinImage"
@@ -57,26 +61,22 @@
         android:id="@+id/update"
         android:layout_width="wrap_content"
         android:layout_height="24dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="152dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="20dp"
         android:text="Last Update "
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/coin_prince"
+        app:layout_constraintStart_toEndOf="@+id/coin_name"
         app:layout_constraintTop_toBottomOf="@+id/coin_prince" />
 
     <GridLayout
         android:id="@+id/gridLayout2"
         android:layout_width="376dp"
         android:layout_height="80dp"
-        android:layout_marginBottom="240dp"
         android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/update"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintTop_toBottomOf="@+id/update">
 
         <TextView
             android:layout_width="wrap_content"
@@ -86,8 +86,7 @@
             android:layout_row="0"
             android:text="Market Cap"
             android:textColor="@color/colorPrimary"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textSize="16sp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -95,10 +94,9 @@
             android:layout_column="1"
             android:layout_margin="@dimen/space5"
             android:layout_row="0"
-            android:text="Volume (24h)"
+            android:text="Max Supply"
             android:textColor="@color/colorPrimary"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textSize="16sp" />
 
 
         <TextView
@@ -107,10 +105,9 @@
             android:layout_column="2"
             android:layout_margin="@dimen/space5"
             android:layout_row="0"
-            android:text="Circulating"
+            android:text="Available supply"
             android:textColor="@color/colorPrimary"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textSize="16sp" />
 
 
         <!--Data-->
@@ -146,4 +143,29 @@
             android:textColor="@color/colorPrimary"
             android:textSize="14sp" />
     </GridLayout>
+
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollViewFloat"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/horizontalScrollView"
+        android:layout_alignParentRight="true">
+
+    </HorizontalScrollView>
+
+    <view
+        android:id="@+id/line_view_float"
+        class="im.dacer.androidcharts.LineView"
+        android:layout_width="373dp"
+        android:layout_height="387dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gridLayout2"
+        app:layout_constraintVertical_bias="1.0" />
 </android.support.constraint.ConstraintLayout>

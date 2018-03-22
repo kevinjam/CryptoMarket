@@ -9,7 +9,7 @@
     android:id="@+id/constraint_details">
 
     <TextView
-        android:id="@+id/news_title"
+        android:id="@+id/news_title_sub"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -30,7 +30,7 @@
         android:text="Vestibulum id ligula porta felis euismod semper. Cras mattis consectetur purus sit amet fermentum."
         app:layout_constraintEnd_toStartOf="@+id/news_image"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/news_title" />
+        app:layout_constraintTop_toBottomOf="@+id/news_title_sub" />
 
     <ImageView
         android:id="@+id/news_image"
@@ -69,7 +69,7 @@
         android:layout_marginStart="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.951"
-        app:layout_constraintStart_toEndOf="@+id/news_title"
+        app:layout_constraintStart_toEndOf="@+id/news_title_sub"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_ardr" />
 </android.support.constraint.ConstraintLayout>

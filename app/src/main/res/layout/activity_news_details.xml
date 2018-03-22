@@ -28,7 +28,7 @@
         app:srcCompat="@drawable/ic_neo" />
 
     <TextView
-        android:id="@+id/news_title"
+        android:id="@+id/news_title_sub"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:padding="@dimen/space10"

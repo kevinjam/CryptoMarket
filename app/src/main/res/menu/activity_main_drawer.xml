@@ -33,6 +33,13 @@
             android:title="Converter"
             android:visible="false"/>
 
+        <item
+            android:id="@+id/nav_wallet"
+            android:icon="@drawable/ic_menu_walet"
+            android:title="Wallet"
+           />
+
+
     </group>
 
     <item android:title="General">

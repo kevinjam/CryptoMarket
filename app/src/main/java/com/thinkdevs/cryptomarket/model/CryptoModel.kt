@@ -1,5 +1,6 @@
 package com.thinkdevs.cryptomarket.model
 
+import com.thinkdevs.cryptomarket.utils.CryptCurrency
 import java.io.Serializable
 
 /**
@@ -50,7 +51,11 @@ data class Crypto(
 		val percent_change_24h: String,
 		val percent_change_7d: String,
 		val last_updated: String
-)
+){
+	override fun toString(): String {
+		return CryptCurrency.toStringGson().toJson(this)
+	}
+}
 
 
 class GlobalMarket(

@@ -1,6 +1,5 @@
 package com.thinkdevs.cryptomarket.controller
 
-import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -12,8 +11,13 @@ import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdSize
+import com.google.android.gms.ads.AdView
 import com.thinkdevs.cryptomarket.R
 import com.thinkdevs.cryptomarket.adapter.TabPagerAdapter
+import com.thinkdevs.cryptomarket.constant.ADMOB_UNIT
+import com.thinkdevs.cryptomarket.utils.CryptCurrency
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 import kotlinx.android.synthetic.main.content_main.*
@@ -38,6 +42,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 		nav_view.setNavigationItemSelectedListener(this)
 		configureTabLayout()
 //		setDefaultFragment()
+		adsmobs()
 		
 	}
 	
@@ -110,7 +115,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 		// automatically handle clicks on the Home/Up button, so long
 		// as you specify a parent activity in AndroidManifest.xml.
 		when (item.itemId) {
-			R.id.action_settings -> return true
+			R.id.wallet -> return true
 			else -> return super.onOptionsItemSelected(item)
 		}
 	}
@@ -134,6 +139,14 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 			R.id.nav_global -> {
 				startActivity(Intent(this@MainActivity, GlobalMarketActivity::class.java))
 				
+			}
+			
+			R.id.nav_wallet->{
+				//startActivity(Intent(this@MainActivity, WalletActivity::class.java))
+				alert  ("Coming Soon " +
+						"Contact us info@thinkdevs.com", "Wallet"){
+					yesButton {  }
+				}.show()
 				
 			}
 			R.id.nav_news -> {
@@ -175,7 +188,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 				"creation of additional units, and to verify the transfer of assets.","Coin MarketApp "){
 			
 			yesButton {  }
-		}
+		}.show()
 	}
 	
 	private fun sendEmailSupport(){
@@ -186,6 +199,30 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 		startActivity(Intent.createChooser(emailIntent, "Send email..."))
 	
 	}
+	
+	private fun adsmobs() {
+		if (CryptCurrency.isNetworkAvailable(this)) {
+			//Helper.logAmplitudeEvent("ADS_HOME")
+			val isConnected = true
+			if (isConnected) {
+				val adView = AdView(this)
+				adView.adSize = AdSize.BANNER
+				adView.adUnitId = ADMOB_UNIT
+				layout_ad.addView(adView)
+				val adResquest = AdRequest.Builder().build()
+				adView.loadAd(adResquest)
+			} else {
+				println("IS NOT CONNECTED")
+				
+				layout_ad.visibility = View.GONE
+			}
+		} else {
+			layout_ad.visibility = View.GONE
+		}
+		
+		
+	}
+	
 	
 	private fun share() {
 		val message = "https://play.google.com/store/apps/details?id=$packageName"

@@ -35,7 +35,7 @@ class ArticleAdapter(var context:Context, var list:ArrayList<Articles>):Recycler
 	}
 	
 	inner class ViewHolder(itemView: View?) : RecyclerView.ViewHolder(itemView){
-		var newsTitle = itemView!!.findViewById<TextView>(R.id.news_title)
+		var newsTitle = itemView!!.findViewById<TextView>(R.id.news_title_sub)
 		var newsDescp = itemView!!.findViewById<TextView>(R.id.news_description)
 		var newsDate = itemView!!.findViewById<TextView>(R.id.news_date)
 		var newsImage = itemView!!.findViewById<ImageView>(R.id.news_image)

@@ -28,7 +28,8 @@
         <activity android:name=".controller.NewsDetails" />
         <activity android:name=".controller.ConverterActivity" />
         <activity android:name=".controller.FullListActivity" />
-        <activity android:name=".controller.PortofolioActivity"></activity>
+        <activity android:name=".controller.PortofolioActivity" />
+        <activity android:name=".controller.WalletActivity"></activity>
     </application>
 
 </manifest>
