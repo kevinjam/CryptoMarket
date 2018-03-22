@@ -96,6 +96,12 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 //				manager.beginTransaction()
 //						.replace(R.id.mainRelative, global).commit()
 			}
+			R.id.nav_fullist -> {
+				startActivity(Intent(this@MainActivity, FullListActivity::class.java))
+				
+				
+			}
+			
 			R.id.nav_global -> {
 				startActivity(Intent(this@MainActivity, GlobalMarketActivity::class.java))
 				
@@ -106,7 +112,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 				
 			}
 			R.id.nav_portfolio -> {
-			
+				startActivity(Intent(this@MainActivity, PortofolioActivity::class.java))
+				
 			}
 			
 			R.id.nav_converter->{
@@ -115,6 +122,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 			}
 			R.id.nav_share -> {
 				share()
+			}
+			
+			R.id.nav_about->{
+			
 			}
 			
 		}

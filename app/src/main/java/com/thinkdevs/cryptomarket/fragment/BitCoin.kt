@@ -16,6 +16,7 @@ import com.thinkdevs.cryptomarket.R
 import com.thinkdevs.cryptomarket.adapter.BitCoinAdapter
 import com.thinkdevs.cryptomarket.model.CryptoModel
 import com.thinkdevs.cryptomarket.model.Helper
+import com.thinkdevs.cryptomarket.utils.SimpleDividerItemDecoration
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
@@ -36,6 +37,7 @@ class BitCoin : Fragment() {
 		bitcoin_rec.setHasFixedSize(true)
 		val layoutManager : RecyclerView.LayoutManager = LinearLayoutManager(activity)
 		bitcoin_rec.layoutManager = layoutManager
+		bitcoin_rec.addItemDecoration(SimpleDividerItemDecoration(activity))
 		
 		composite = CompositeDisposable()
 		getBitcoins()

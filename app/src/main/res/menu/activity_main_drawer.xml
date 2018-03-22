@@ -11,7 +11,7 @@
 
         <item
             android:id="@+id/nav_fullist"
-            android:icon="@drawable/ic_menu_port"
+            android:icon="@drawable/full_list"
             android:title="Full list" />
         <item
             android:id="@+id/nav_global"
@@ -29,16 +29,22 @@
         <item
             android:id="@+id/nav_converter"
             android:icon="@drawable/ic_menu_port"
-            android:title="Converter" />
+            android:title="Converter"
+            android:visible="false"/>
 
     </group>
 
-    <item android:title="Communicate">
+    <item android:title="">
         <menu>
             <item
                 android:id="@+id/nav_share"
                 android:icon="@drawable/ic_menu_share"
                 android:title="Share" />
+
+            <item
+                android:id="@+id/nav_about"
+                android:icon="@drawable/ic_menu_about"
+                android:title="About" />
         </menu>
     </item>
 

@@ -25,4 +25,8 @@ interface CryptoApiService {
 	
 	@GET("ticker/Ethereum/?convert=EUR")
 fun get_ticket():Observable<ArrayList<CryptoModel>>
+	
+	
+	@GET("ticker/?convert=EUR&limit=1000")
+fun get_full_list():Observable<ArrayList<CryptoModel>>
 }
