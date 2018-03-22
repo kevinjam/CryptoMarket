@@ -30,6 +30,6 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="info@android.com" />
+        android:text="@string/email_addess" />
 
 </LinearLayout>

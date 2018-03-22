@@ -44,7 +44,7 @@ class ArticleAdapter(var context:Context, var list:ArrayList<Articles>):Recycler
 		
 		
 		fun bindnews(context: Context,model:Articles){
-			newsTitle.text = model.source.name
+			newsTitle.text = model.title.substring(0, 20) +"..."
 			newsDescp.text = model.title
 			newsDate.text = model.publishedAt
 			

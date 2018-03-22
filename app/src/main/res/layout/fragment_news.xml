@@ -4,15 +4,146 @@
     android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.thinkdevs.cryptomarket.fragment.NewsFragment"
-    tools:layout_editor_absoluteY="25dp"
-    android:background="@color/colorPrimary">
+    tools:context="com.thinkdevs.cryptomarket.fragment.EutheremFragment"
+    tools:layout_editor_absoluteY="25dp">
 
-    <TimePicker
-        android:id="@+id/timePicker"
+
+    <TextView
+        android:id="@+id/coin_prince"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="96dp"
+        android:layout_marginTop="32dp"
+        android:textColor="@color/colorPrimary"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/symbol"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/coinImage"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/ic_ethereum"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/symbol"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        android:text="ETH"
+        android:textColor="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/coin_name"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Ethereum"
+        app:layout_constraintEnd_toStartOf="@+id/coin_prince"
+        app:layout_constraintHorizontal_bias="0.111"
+        app:layout_constraintStart_toEndOf="@+id/coinImage"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/update"
+        android:layout_width="wrap_content"
+        android:layout_height="24dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="20dp"
+        android:text="Last Update "
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/coin_prince"
+        app:layout_constraintTop_toBottomOf="@+id/coin_prince" />
+
+    <GridLayout
+        android:id="@+id/gridLayout2"
+        android:layout_width="376dp"
+        android:layout_height="80dp"
+        android:layout_marginBottom="240dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/update"
+        app:layout_constraintVertical_bias="0.0">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:layout_margin="@dimen/space5"
+            android:layout_row="0"
+            android:text="Market Cap"
+            android:textColor="@color/colorPrimary"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:layout_margin="@dimen/space5"
+            android:layout_row="0"
+            android:text="Volume (24h)"
+            android:textColor="@color/colorPrimary"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="2"
+            android:layout_margin="@dimen/space5"
+            android:layout_row="0"
+            android:text="Circulating"
+            android:textColor="@color/colorPrimary"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+
+        <!--Data-->
+
+        <TextView
+            android:id="@+id/market_cap"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:layout_margin="@dimen/space5"
+            android:layout_row="1"
+            android:textColor="@color/colorPrimary"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/volume"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:layout_margin="@dimen/space5"
+            android:layout_row="1"
+            android:textColor="@color/colorPrimary"
+            android:textSize="14sp" />
+
+
+        <TextView
+            android:id="@+id/available_supply"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="2"
+            android:layout_margin="@dimen/space5"
+            android:layout_row="1"
+            android:textColor="@color/colorPrimary"
+            android:textSize="14sp" />
+    </GridLayout>
 </android.support.constraint.ConstraintLayout>

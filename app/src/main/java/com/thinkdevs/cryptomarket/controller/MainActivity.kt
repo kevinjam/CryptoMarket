@@ -1,5 +1,6 @@
 package com.thinkdevs.cryptomarket.controller
 
+import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -10,11 +11,14 @@ import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import com.thinkdevs.cryptomarket.R
 import com.thinkdevs.cryptomarket.adapter.TabPagerAdapter
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 import kotlinx.android.synthetic.main.content_main.*
+import org.jetbrains.anko.alert
+import org.jetbrains.anko.yesButton
 
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -23,7 +27,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 		super.onCreate(savedInstanceState)
 		setContentView(R.layout.activity_main)
 		setSupportActionBar(toolbar)
-		supportActionBar!!.title = "Home "
+		supportActionBar!!.title = "Crypto Market"
 		
 		
 		val toggle = ActionBarDrawerToggle(
@@ -43,19 +47,44 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 		tab_layout.addTab(tab_layout.newTab().setText("Litecoin"))
 		tab_layout.addTab(tab_layout.newTab().setText("Ripple"))
 		
+		supportActionBar!!.elevation = 0f
+		tab_layout.tabMode = TabLayout.MODE_SCROLLABLE
+		tab_layout.tabGravity = TabLayout.GRAVITY_FILL
+		
 		
 		val adapter = TabPagerAdapter(supportFragmentManager, tab_layout.tabCount)
 		pager.adapter = adapter
 		pager.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(tab_layout))
-		tab_layout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener{
+		tab_layout.setOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
 			override fun onTabReselected(tab: TabLayout.Tab?) {
-				pager.currentItem = tab!!.position
 			}
 			
 			override fun onTabUnselected(tab: TabLayout.Tab?) {
 			}
 			
 			override fun onTabSelected(tab: TabLayout.Tab?) {
+				pager.currentItem = tab!!.position
+				pager.visibility = View.VISIBLE
+				pager.currentItem = tab.position
+				
+				when {
+					tab.position == 0 -> {
+						toolbar.title = "Bit coin"
+						//Helper.logAmplitudeEvent("LIVE_SCORE")
+					}
+					tab.position == 1 -> {
+						toolbar.title = "Ethereum"
+						//Helper.logAmplitudeEvent("RECENT_MATCH")
+					}
+					tab.position == 2 -> {
+						toolbar.title = "Litecoin"
+						//Helper.logAmplitudeEvent("LATEST_NEWS")
+					}
+					tab.position == 3 -> {
+						toolbar.title = "Ripple"
+						//Helper.logAmplitudeEvent("LEAGUE")
+					}
+				}
 			}
 			
 		})
@@ -125,13 +154,37 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 			}
 			
 			R.id.nav_about->{
+			about()
+			}
 			
+			R.id.nav_support->{
+				sendEmailSupport()
+				
 			}
 			
 		}
 		
 		drawer_layout.closeDrawer(GravityCompat.START)
 		return true
+	}
+	
+	private fun about(){
+		alert("A Cryptocurrency is a digital" +
+				" asset designed to work as a medium of exchange that uses" +
+				" cryptography to secure its transactions, to control the " +
+				"creation of additional units, and to verify the transfer of assets.","Coin MarketApp "){
+			
+			yesButton {  }
+		}
+	}
+	
+	private fun sendEmailSupport(){
+		val emailIntent = Intent(Intent.ACTION_SENDTO, Uri.fromParts(
+				"mailto", "info@thinkdevs.com", null))
+		emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Subject")
+		emailIntent.putExtra(Intent.EXTRA_TEXT, "Body")
+		startActivity(Intent.createChooser(emailIntent, "Send email..."))
+	
 	}
 	
 	private fun share() {
@@ -141,7 +194,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 		share.putExtra(Intent.EXTRA_TITLE, "LiveScore App")
 		share.putExtra(Intent.EXTRA_TEXT, "Hey, check Crypto Market App" + " "
 				+ Uri.parse(message))
-		startActivity(Intent.createChooser(share, "Share Via : "))
+		startActivity(Intent.createChooser(share, "Share with : "))
 	}
 	
 }

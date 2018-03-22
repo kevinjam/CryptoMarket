@@ -32,9 +32,25 @@ data class CryptoModel(
 		return "$name ($symbol)"
 	}
 	
-	
 }
 
+data class Crypto(
+		val id: String,
+		var name: String,
+		var symbol: String,
+		val rank: String,
+		val price_usd: String,
+		val price_btc: String,
+		val h_volume_usd: String,
+		val market_cap_usd: String,
+		val available_supply: String,
+		val total_supply: String,
+		val max_supply: String,
+		val percent_change_1h: String,
+		val percent_change_24h: String,
+		val percent_change_7d: String,
+		val last_updated: String
+)
 
 
 class GlobalMarket(
@@ -44,7 +60,7 @@ class GlobalMarket(
 		var active_currencies: Int,
 		var active_assets: Int,
 		var active_markets: Int,
-		var last_updated: Int
+		var last_updated: Long
 )
 
 

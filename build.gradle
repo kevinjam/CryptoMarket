@@ -4,7 +4,8 @@ buildscript {
     ext.versions = [
             "glide_v3"      : "3.7.0",
             "kotlin"        : "1.2.30",
-            "gradle_version": "3.0.1"
+            "gradle_version": "3.0.1",
+            "anko_version":"0.10.4"
 
     ]
 
@@ -12,7 +13,8 @@ buildscript {
             "glide_img_google"    : "com.github.bumptech.glide:glide:${versions.glide_v3}",
             "kotlin_gradle_plugin": "org.jetbrains.kotlin:kotlin-gradle-plugin:${versions.kotlin}",
             "kotlin_stdlib"       : "org.jetbrains.kotlin:kotlin-stdlib-jre7:${versions.kotlin}",
-            "tools_build":"com.android.tools.build:gradle:${versions.gradle_version}"
+            "tools_build":"com.android.tools.build:gradle:${versions.gradle_version}",
+            "anko_version":"org.jetbrains.anko:anko:${versions.anko_version}"
 
     ]
     repositories {

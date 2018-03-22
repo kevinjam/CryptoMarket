@@ -1,5 +1,6 @@
 package com.thinkdevs.cryptomarket.service
 
+import com.thinkdevs.cryptomarket.model.Crypto
 import com.thinkdevs.cryptomarket.model.CryptoModel
 import com.thinkdevs.cryptomarket.model.GlobalMarket
 import com.thinkdevs.cryptomarket.model.NewsModel
@@ -13,7 +14,6 @@ import retrofit2.http.Path
  */
 interface CryptoApiService {
 	@GET("ticker")
-	
 	fun getbitcoin(): Observable<ArrayList<CryptoModel>>
 	
 	
@@ -24,9 +24,17 @@ interface CryptoApiService {
 	fun getnews(): Observable<NewsModel>
 	
 	@GET("ticker/Ethereum/?convert=EUR")
-fun get_ticket():Observable<ArrayList<CryptoModel>>
-	
+	fun get_ticket(): Observable<ArrayList<CryptoModel>>
 	
 	@GET("ticker/?convert=EUR&limit=1000")
-fun get_full_list():Observable<ArrayList<CryptoModel>>
+	fun get_full_list(): Observable<ArrayList<CryptoModel>>
+	
+	@GET("ticker/Ethereum")
+	fun get_ethereum(): Observable<ArrayList<Crypto>>
+	
+	@GET("ticker/Litecoin")
+	fun get_litecoin(): Observable<ArrayList<Crypto>>
+	
+	@GET("ticker/Ripple")
+	fun get_ripple(): Observable<ArrayList<Crypto>>
 }

@@ -55,14 +55,18 @@ class GlobalMarketActivity : AppCompatActivity() {
 		
 		log("result $result")
 		log("Total====== ${result.bitcoin_percentage_of_market_cap}")
-		totalMarket.text = " ${result.total_market_cap_usd } Billion"
-		total_24h.text = " ${result.total_24h_volume_usd} Billion"
+//		totalMarket.text = String.format("%.3fBillion", result.total_market_cap_usd.toLong()/1000000000)
+		totalMarket.text = " ${withSuffix(result.total_market_cap_usd.toLong())} Billion"
+		total_24h.text = " ${withSuffix(result.total_24h_volume_usd.toLong())} Billion"
 		bitcoinPerc.text = " ${result.bitcoin_percentage_of_market_cap} % "
 		activeCurrency.text = result.active_currencies.toString()
 		active_asset.text = result.active_assets.toString()
 		active_market.text = result.active_markets.toString()
 		last_update.text = result.last_updated.toString()
 		
+		val testing:Long = result.total_market_cap_usd.toLong()
+		
+		log("Coin Base --- ${withSuffix(testing)}")
 	}
 	
 	private fun log(msg: String) {
@@ -72,4 +76,15 @@ class GlobalMarketActivity : AppCompatActivity() {
 	override fun onBackPressed() {
 		super.onBackPressed()
 	}
+	
+	fun withSuffix(count: Long): String {
+		if (count < 1000) return "" + count
+		val exp = (Math.log(count.toDouble()) / Math.log(1000.0)).toInt()
+		return String.format("%.1f %c",
+				count / Math.pow(1000.0, exp.toDouble()),
+				"HM-TPE"[exp - 1])
+	}
+	
+	
 }
+
