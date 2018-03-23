@@ -14,6 +14,7 @@ import com.thinkdevs.cryptomarket.R
 import com.thinkdevs.cryptomarket.constant.NEWS_DETAILS
 import com.thinkdevs.cryptomarket.controller.NewsDetails
 import com.thinkdevs.cryptomarket.model.Articles
+import com.thinkdevs.cryptomarket.utils.CryptCurrency
 
 /**
  * Created by kevinjanvier on 21/03/2018.
@@ -50,6 +51,7 @@ class ArticleAdapter(var context:Context, var list:ArrayList<Articles>):Recycler
 			
 			Glide.with(context).load(model.urlToImage).into(newsImage)
 			more.setOnClickListener {
+				CryptCurrency.logAmplitudeEvent("NEWS_MORE")
 				val intent = Intent(context, NewsDetails::class.java)
 				intent.putExtra(NEWS_DETAILS, model)
 				context.startActivity(intent)

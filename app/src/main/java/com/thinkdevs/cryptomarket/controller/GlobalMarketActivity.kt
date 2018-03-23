@@ -4,9 +4,14 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdSize
+import com.google.android.gms.ads.AdView
 import com.thinkdevs.cryptomarket.R
+import com.thinkdevs.cryptomarket.constant.ADMOB_UNIT
 import com.thinkdevs.cryptomarket.model.GlobalMarket
 import com.thinkdevs.cryptomarket.model.Helper
+import com.thinkdevs.cryptomarket.utils.CryptCurrency
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
@@ -30,6 +35,8 @@ class GlobalMarketActivity : AppCompatActivity() {
 		}
 		
 		globalMarket()
+		
+		adsmobs()
 		
 	}
 	
@@ -75,6 +82,9 @@ class GlobalMarketActivity : AppCompatActivity() {
 	
 	override fun onBackPressed() {
 		super.onBackPressed()
+		overridePendingTransition(R.anim.activity_back_in, R.anim.activity_back_out)
+		
+		
 	}
 	
 	fun withSuffix(count: Long): String {
@@ -83,6 +93,29 @@ class GlobalMarketActivity : AppCompatActivity() {
 		return String.format("%.1f %c",
 				count / Math.pow(1000.0, exp.toDouble()),
 				"HM-TPE"[exp - 1])
+	}
+	
+	private fun adsmobs() {
+		if (CryptCurrency.isNetworkAvailable(this)) {
+				CryptCurrency.logAmplitudeEvent("ADS_HOME")
+			val isConnected = true
+			if (isConnected) {
+				val adView = AdView(this)
+				adView.adSize = AdSize.BANNER
+				adView.adUnitId = ADMOB_UNIT
+				linearLayout4.addView(adView)
+				val adResquest = AdRequest.Builder().build()
+				global_ads.loadAd(adResquest)
+			} else {
+				println("IS NOT CONNECTED")
+				
+				linearLayout4.visibility = View.GONE
+			}
+		} else {
+			linearLayout4.visibility = View.GONE
+		}
+		
+		
 	}
 	
 	

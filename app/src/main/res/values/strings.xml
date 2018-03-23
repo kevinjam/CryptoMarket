@@ -4,12 +4,12 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
-    <string name="wallet">Settings</string>
+    <string name="wallet">Wallet</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_coin">CoinActivity</string>
     <string name="title_activity_main2">Main2Activity</string>
     <string name="market_capitalisation">Market Capitalizations</string>
     <string name="email_addess">info@thinkdevs.com</string>
+    <string name="add_unit">ca-app-pub-8831705983843599/7843330965</string>
 </resources>

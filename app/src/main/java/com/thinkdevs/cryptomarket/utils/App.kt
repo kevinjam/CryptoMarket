@@ -44,7 +44,8 @@ class App :Application() {
 	}
 	
 	private fun trackbugs() {
-		Mint.initAndStartSession(this, "343905f7")
+		Mint.initAndStartSession(this@App, "8073f5b3")
+		
 	}
 	
 	

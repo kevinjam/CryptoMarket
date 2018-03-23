@@ -7,16 +7,21 @@ apply plugin: 'kotlin-android-extensions'
 android {
     compileSdkVersion 26
     defaultConfig {
+        // Stops the Gradle plugin’s automatic rasterization of vectors
+        generatedDensities = []
         applicationId "com.thinkdevs.cryptomarket"
-        minSdkVersion 15
-        targetSdkVersion 26
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion versions.min_sdk
+        targetSdkVersion versions.target_sdk
+        versionCode versions.version_code
+        versionName versions.version_name
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        //strip other than english resources
+        resConfig("en")
     }
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }

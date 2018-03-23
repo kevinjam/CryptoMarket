@@ -148,7 +148,6 @@
         android:id="@+id/horizontalScrollViewFloat"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/horizontalScrollView"
         android:layout_alignParentRight="true">
 
     </HorizontalScrollView>

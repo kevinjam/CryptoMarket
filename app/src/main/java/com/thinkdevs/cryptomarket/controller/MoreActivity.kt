@@ -4,9 +4,15 @@ import android.content.Intent
 import android.net.Uri
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdSize
+import com.google.android.gms.ads.AdView
 import com.thinkdevs.cryptomarket.R
+import com.thinkdevs.cryptomarket.constant.ADMOB_UNIT
 import com.thinkdevs.cryptomarket.constant.COIN_DETAILS
 import com.thinkdevs.cryptomarket.model.CryptoModel
+import com.thinkdevs.cryptomarket.utils.CryptCurrency
 import kotlinx.android.synthetic.main.activity_more.*
 import kotlinx.android.synthetic.main.toolbar.view.*
 import java.text.SimpleDateFormat
@@ -17,6 +23,8 @@ class MoreActivity : AppCompatActivity() {
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
 		setContentView(R.layout.activity_more)
+		
+		adsmobs()
 		
 		val model = intent.getSerializableExtra(COIN_DETAILS) as CryptoModel
 		println("moddddd $model")
@@ -458,6 +466,31 @@ class MoreActivity : AppCompatActivity() {
 				+ Uri.parse(message))
 		startActivity(Intent.createChooser(share, "Shared via : "))
 	}
+	
+	
+	private fun adsmobs() {
+		if (CryptCurrency.isNetworkAvailable(this)) {
+			//	Helper.logAmplitudeEvent("ADS_HOME")
+			val isConnected = true
+			if (isConnected) {
+				val adView = AdView(this)
+				adView.adSize = AdSize.BANNER
+				adView.adUnitId = ADMOB_UNIT
+				linearLayout4.addView(adView)
+				val adResquest = AdRequest.Builder().build()
+				moreads.loadAd(adResquest)
+			} else {
+				println("IS NOT CONNECTED")
+				
+				linearLayout4.visibility = View.GONE
+			}
+		} else {
+			linearLayout4.visibility = View.GONE
+		}
+		
+		
+	}
+	
 	
 	override fun onBackPressed() {
 		super.onBackPressed()

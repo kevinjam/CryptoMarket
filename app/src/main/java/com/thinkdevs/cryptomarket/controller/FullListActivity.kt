@@ -8,10 +8,15 @@ import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdSize
+import com.google.android.gms.ads.AdView
 import com.thinkdevs.cryptomarket.R
 import com.thinkdevs.cryptomarket.adapter.FullListAdapter
+import com.thinkdevs.cryptomarket.constant.ADMOB_UNIT
 import com.thinkdevs.cryptomarket.model.CryptoModel
 import com.thinkdevs.cryptomarket.model.Helper
+import com.thinkdevs.cryptomarket.utils.CryptCurrency
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
@@ -25,7 +30,7 @@ class FullListActivity : AppCompatActivity() {
 		super.onCreate(savedInstanceState)
 		setContentView(R.layout.activity_full_list)
 		composite = CompositeDisposable()
-		
+		adsmobs()
 		full_list_toolbar.coinImage.visibility = View.GONE
 		full_list_toolbar.nav_nack.setOnClickListener {
 			onBackPressed()
@@ -86,6 +91,33 @@ class FullListActivity : AppCompatActivity() {
 	
 	override fun onBackPressed() {
 		super.onBackPressed()
+		overridePendingTransition(R.anim.activity_back_in, R.anim.activity_back_out)
+		
+		
+	}
+	
+	
+	private fun adsmobs() {
+		if (CryptCurrency.isNetworkAvailable(this)) {
+				CryptCurrency.logAmplitudeEvent("ADS_HOME")
+			val isConnected = true
+			if (isConnected) {
+				val adView = AdView(this)
+				adView.adSize = AdSize.BANNER
+				adView.adUnitId = ADMOB_UNIT
+				linearAds.addView(adView)
+				val adResquest = AdRequest.Builder().build()
+				full_ads.loadAd(adResquest)
+			} else {
+				println("IS NOT CONNECTED")
+				
+				linearAds.visibility = View.GONE
+			}
+		} else {
+			linearAds.visibility = View.GONE
+		}
+		
+		
 	}
 
 }

@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.thinkdevs.cryptomarket">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" tools:node="remove" />
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".controller.MainActivity"
+            android:name=".controller.SplashScreen"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -29,7 +30,8 @@
         <activity android:name=".controller.ConverterActivity" />
         <activity android:name=".controller.FullListActivity" />
         <activity android:name=".controller.PortofolioActivity" />
-        <activity android:name=".controller.WalletActivity"></activity>
+        <activity android:name=".controller.WalletActivity" />
+        <activity android:name=".controller.MainActivity"></activity>
     </application>
 
 </manifest>

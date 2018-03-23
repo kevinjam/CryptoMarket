@@ -73,6 +73,8 @@ class NewsActivity : AppCompatActivity() {
 	
 	override fun onBackPressed() {
 		super.onBackPressed()
+		overridePendingTransition(R.anim.activity_back_in, R.anim.activity_back_out)
+		
 	}
 	
 	//Check this news : newsTitle

@@ -17,6 +17,7 @@ import com.google.android.gms.ads.AdView
 import com.thinkdevs.cryptomarket.R
 import com.thinkdevs.cryptomarket.adapter.TabPagerAdapter
 import com.thinkdevs.cryptomarket.constant.ADMOB_UNIT
+import com.thinkdevs.cryptomarket.model.Helper
 import com.thinkdevs.cryptomarket.utils.CryptCurrency
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
@@ -31,7 +32,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 		super.onCreate(savedInstanceState)
 		setContentView(R.layout.activity_main)
 		setSupportActionBar(toolbar)
-		supportActionBar!!.title = "Crypto Market"
+		supportActionBar!!.title = "Crypto Market Cap"
 		
 		
 		val toggle = ActionBarDrawerToggle(
@@ -75,19 +76,19 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 				when {
 					tab.position == 0 -> {
 						toolbar.title = "Bit coin"
-						//Helper.logAmplitudeEvent("LIVE_SCORE")
+						CryptCurrency.logAmplitudeEvent("BIT_COIN_TAB")
 					}
 					tab.position == 1 -> {
 						toolbar.title = "Ethereum"
-						//Helper.logAmplitudeEvent("RECENT_MATCH")
+						CryptCurrency.logAmplitudeEvent("ETHEREUN_TAB")
 					}
 					tab.position == 2 -> {
 						toolbar.title = "Litecoin"
-						//Helper.logAmplitudeEvent("LATEST_NEWS")
+						CryptCurrency.logAmplitudeEvent("LITECOIN_TAB")
 					}
 					tab.position == 3 -> {
 						toolbar.title = "Ripple"
-						//Helper.logAmplitudeEvent("LEAGUE")
+						CryptCurrency.logAmplitudeEvent("RIPPLE_TAB")
 					}
 				}
 			}
@@ -114,9 +115,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 		// Handle action bar item clicks here. The action bar will
 		// automatically handle clicks on the Home/Up button, so long
 		// as you specify a parent activity in AndroidManifest.xml.
-		when (item.itemId) {
-			R.id.wallet -> return true
-			else -> return super.onOptionsItemSelected(item)
+		return when (item.itemId) {
+			R.id.wallet -> true
+			else -> super.onOptionsItemSelected(item)
 		}
 	}
 	
@@ -125,6 +126,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 		// Handle navigation view item clicks here.
 		when (item.itemId) {
 			R.id.nav_home -> {
+				CryptCurrency.logAmplitudeEvent("HOME_MENU")
+
 //				val global = BitCoin()
 //				val manager :FragmentManager = supportFragmentManager
 //				manager.beginTransaction()
@@ -132,12 +135,16 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 			}
 			R.id.nav_fullist -> {
 				startActivity(Intent(this@MainActivity, FullListActivity::class.java))
+				CryptCurrency.logAmplitudeEvent("FULL_LIST_MENU")
+				overridePendingTransition(R.anim.enter_anim, R.anim.exit_anim)
 				
 				
 			}
 			
 			R.id.nav_global -> {
 				startActivity(Intent(this@MainActivity, GlobalMarketActivity::class.java))
+				CryptCurrency.logAmplitudeEvent("GLOBAL_MENU")
+				overridePendingTransition(R.anim.enter_anim, R.anim.exit_anim)
 				
 			}
 			
@@ -147,19 +154,26 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 						"Contact us info@thinkdevs.com", "Wallet"){
 					yesButton {  }
 				}.show()
+				CryptCurrency.logAmplitudeEvent("WALLET_MENU")
 				
 			}
 			R.id.nav_news -> {
+				CryptCurrency.logAmplitudeEvent("NEWS_MENU")
 				startActivity(Intent(this@MainActivity, NewsActivity::class.java))
+				overridePendingTransition(R.anim.enter_anim, R.anim.exit_anim)
 				
 			}
 			R.id.nav_portfolio -> {
+				CryptCurrency.logAmplitudeEvent("PORTFOLIO_MENU")
 				startActivity(Intent(this@MainActivity, PortofolioActivity::class.java))
+				overridePendingTransition(R.anim.enter_anim, R.anim.exit_anim)
 				
 			}
 			
 			R.id.nav_converter->{
 				startActivity(Intent(this@MainActivity, ConverterActivity::class.java))
+				CryptCurrency.logAmplitudeEvent("CONVERTER")
+				overridePendingTransition(R.anim.enter_anim, R.anim.exit_anim)
 				
 			}
 			R.id.nav_share -> {
@@ -182,12 +196,16 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 	}
 	
 	private fun about(){
+		CryptCurrency.logAmplitudeEvent("ABOUT")
+		
 		alert("A Cryptocurrency is a digital" +
 				" asset designed to work as a medium of exchange that uses" +
 				" cryptography to secure its transactions, to control the " +
-				"creation of additional units, and to verify the transfer of assets.","Coin MarketApp "){
+				"creation of additional units, and to verify the transfer of assets.","Coin Market App "){
 			
-			yesButton {  }
+			yesButton {
+			
+			}
 		}.show()
 	}
 	
@@ -202,7 +220,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 	
 	private fun adsmobs() {
 		if (CryptCurrency.isNetworkAvailable(this)) {
-			//Helper.logAmplitudeEvent("ADS_HOME")
+			CryptCurrency.logAmplitudeEvent("ADS_HOME")
 			val isConnected = true
 			if (isConnected) {
 				val adView = AdView(this)
@@ -210,7 +228,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 				adView.adUnitId = ADMOB_UNIT
 				layout_ad.addView(adView)
 				val adResquest = AdRequest.Builder().build()
-				adView.loadAd(adResquest)
+				mAdView.loadAd(adResquest)
 			} else {
 				println("IS NOT CONNECTED")
 				
@@ -225,10 +243,12 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 	
 	
 	private fun share() {
+		CryptCurrency.logAmplitudeEvent("SHARE_MENU")
+		
 		val message = "https://play.google.com/store/apps/details?id=$packageName"
 		val share = Intent(Intent.ACTION_SEND)
 		share.type = "text/plain"
-		share.putExtra(Intent.EXTRA_TITLE, "LiveScore App")
+		share.putExtra(Intent.EXTRA_TITLE, "Crypto Market")
 		share.putExtra(Intent.EXTRA_TEXT, "Hey, check Crypto Market App" + " "
 				+ Uri.parse(message))
 		startActivity(Intent.createChooser(share, "Share with : "))
