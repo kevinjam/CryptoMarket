@@ -94,10 +94,6 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="TextView" />
-
-        <include
-            android:id="@+id/chart_layout"
-            layout="@layout/bar_chart_layout" />
     </LinearLayout>
 
     <GridLayout

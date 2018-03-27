@@ -12,8 +12,8 @@ buildscript {
             "min_sdk"          : 14,
             "target_sdk"       : 26,
             "version_code"     : 2,
-            "version_name"     : "0.0.2",
-            "chart":"v3.0.3"
+            "version_name"     : "0.0.2"
+//            "chart":"v3.0.3"
 
 
     ]
@@ -25,8 +25,8 @@ buildscript {
             "tools_build":"com.android.tools.build:gradle:${versions.gradle_version}",
             "ads_mobs"            : "com.google.android.gms:play-services-ads:${versions.ads_mobs_version}",
             "anko_version":"org.jetbrains.anko:anko:${versions.anko_version}",
-            "amplitude":"com.amplitude:android-sdk:${versions.amplitude_version}",
-            "chart":"com.github.PhilJay:MPAndroidChart:${versions.chart}"
+            "amplitude":"com.amplitude:android-sdk:${versions.amplitude_version}"
+//            "chart":"com.github.PhilJay:MPAndroidChart:${versions.chart}"
 
 
     ]

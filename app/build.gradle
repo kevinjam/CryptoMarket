@@ -62,7 +62,7 @@ dependencies {
     implementation 'com.splunk.mint:mint:4.4.0'
     implementation deps.amplitude
     implementation deps.ads_mobs
-    implementation deps.chart
+//    implementation deps.chart
 
 }
 
