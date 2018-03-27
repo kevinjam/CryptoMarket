@@ -7,8 +7,6 @@ Crypto Market
 Crypto Market Cap gives you quick and easy access to cryptocurrency prices, details.
 
 Available on Google Play Store.
-================================
-
 <p align="left">
 <a href="https://play.google.com/store/apps/details?id=com.thinkdevs.cryptomarket">
     <img alt="Get it on Google Play"
