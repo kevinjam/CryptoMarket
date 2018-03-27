@@ -42,13 +42,10 @@ class ConverterActivity : AppCompatActivity() {
 							
 						},{
 					error->
-					log("Error ${error.message}")
 				}
 				))
 	}
 	private fun allDetails(result: ArrayList<CryptoModel>?) {
-		log("Cooo $result")
-
 		for(i in 0..0){
 			result!!.add(CryptoModel("$i", ""))
 		}
@@ -86,10 +83,8 @@ class ConverterActivity : AppCompatActivity() {
 				.subscribeOn(Schedulers.io())
 				.subscribe({
 					result ->
-					log("result $result" )
 				},{
 					error ->
-					log("MMMMMM $error")
 				}))
 		
 	
