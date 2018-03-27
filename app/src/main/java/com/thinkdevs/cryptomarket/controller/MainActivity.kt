@@ -11,29 +11,39 @@ import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.TextView
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.thinkdevs.cryptomarket.R
 import com.thinkdevs.cryptomarket.adapter.TabPagerAdapter
 import com.thinkdevs.cryptomarket.constant.ADMOB_UNIT
+import com.thinkdevs.cryptomarket.controller.wallet.LoginActivity
 import com.thinkdevs.cryptomarket.model.Helper
+import com.thinkdevs.cryptomarket.utils.App
 import com.thinkdevs.cryptomarket.utils.CryptCurrency
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 import kotlinx.android.synthetic.main.content_main.*
+import kotlinx.android.synthetic.main.nav_header_main.*
 import org.jetbrains.anko.alert
+import org.jetbrains.anko.noButton
 import org.jetbrains.anko.yesButton
 
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+	var auth:FirebaseAuth?= null
 	
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
 		setContentView(R.layout.activity_main)
-		setSupportActionBar(toolbar)
-		supportActionBar!!.title = "Crypto Market Cap"
 		
+		
+		auth = FirebaseAuth.getInstance()
+		setSupportActionBar(toolbar)
+		supportActionBar!!.title = "Crypto Market"
 		
 		val toggle = ActionBarDrawerToggle(
 				this, drawer_layout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
@@ -42,8 +52,25 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 		
 		nav_view.setNavigationItemSelectedListener(this)
 		configureTabLayout()
-//		setDefaultFragment()
 		adsmobs()
+		hideItem()
+		
+	}
+	
+	fun hideItem(){
+		val navigation = findViewById<NavigationView>(R.id.nav_view)
+		navigation.setNavigationItemSelectedListener(this)
+		navigation.setCheckedItem(R.id.nav_home)
+		
+		
+		val menu_nav:Menu = navigation.menu
+		val user_email:TextView = navigation.getHeaderView(0).findViewById(R.id.email_nav_user)
+		
+		if (App.pref.checkLogin){
+			user_email.text = auth!!.currentUser!!.email
+			menu_nav.findItem(R.id.nav_portfolio).isVisible = true
+			
+		}
 		
 	}
 	
@@ -108,6 +135,14 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 	override fun onCreateOptionsMenu(menu: Menu): Boolean {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		menuInflater.inflate(R.menu.main, menu)
+		val logout = menu.findItem(R.id.logout)
+		val wallet = menu.findItem(R.id.wallet)
+		if (!App.pref.checkLogin){
+			logout.isVisible = false
+		}else{
+			wallet.isVisible = false
+			
+		}
 		return true
 	}
 	
@@ -115,10 +150,33 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 		// Handle action bar item clicks here. The action bar will
 		// automatically handle clicks on the Home/Up button, so long
 		// as you specify a parent activity in AndroidManifest.xml.
-		return when (item.itemId) {
-			R.id.wallet -> true
-			else -> super.onOptionsItemSelected(item)
+		when (item.itemId) {
+			R.id.wallet ->{
+				startActivity(Intent(this@MainActivity, LoginActivity::class.java))
+				CryptCurrency.logAmplitudeEvent("WALLET_MENU")
+				return true
+				
+			}
+			R.id.logout->{
+				alert ("Are you Sure you want to Logout?", "Logout"){
+					yesButton {
+						auth!!.signOut()
+						App.pref.checkLogin = false
+						val authListener = FirebaseAuth.AuthStateListener {
+							firebaseAuth->
+							val user:FirebaseUser = firebaseAuth.currentUser!!
+							startActivity(Intent(this@MainActivity, LoginActivity::class.java))
+							
+						}
+					}
+					noButton {  }
+				}.show()
+				return true
+			}
 		}
+	
+		return  super.onOptionsItemSelected(item)
+		
 	}
 	
 	
@@ -149,24 +207,29 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 			}
 			
 			R.id.nav_wallet->{
-				//startActivity(Intent(this@MainActivity, WalletActivity::class.java))
-				alert  ("Coming Soon " +
-						"Contact us info@thinkdevs.com", "Wallet"){
-					yesButton {  }
-				}.show()
+				startActivity(Intent(this@MainActivity, LoginActivity::class.java))
+//				alert  ("Coming Soon " +
+//						"Contact us info@thinkdevs.com", "Wallet"){
+//					yesButton {  }
+//				}.show()
 				CryptCurrency.logAmplitudeEvent("WALLET_MENU")
 				
 			}
 			R.id.nav_news -> {
-				CryptCurrency.logAmplitudeEvent("NEWS_MENU")
 				startActivity(Intent(this@MainActivity, NewsActivity::class.java))
 				overridePendingTransition(R.anim.enter_anim, R.anim.exit_anim)
+				CryptCurrency.logAmplitudeEvent("NEWS_MENU")
+				
 				
 			}
 			R.id.nav_portfolio -> {
+//				startActivity(Intent(this@MainActivity, PortofolioActivity::class.java))
+//				overridePendingTransition(R.anim.enter_anim, R.anim.exit_anim)
 				CryptCurrency.logAmplitudeEvent("PORTFOLIO_MENU")
-				startActivity(Intent(this@MainActivity, PortofolioActivity::class.java))
-				overridePendingTransition(R.anim.enter_anim, R.anim.exit_anim)
+				alert("Coming Soon " +
+						"Contact us info@thinkdevs.com", "Portfolio") {
+					yesButton { }
+				}.show()
 				
 			}
 			

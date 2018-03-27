@@ -4,17 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".controller.wallet.LoginActivity">
+    android:fitsSystemWindows="true"
+    tools:context="com.thinkdevs.cryptomarket.controller.wallet.SignupActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#F5F5F5"
-        android:orientation="vertical">
+        android:orientation="vertical"
+       >
 
         <include
-            android:id="@+id/toolbar"
-            layout="@layout/toolbar" />
+            layout="@layout/toolbar"
+            android:id="@+id/signup"/>
 
 
         <ImageView
@@ -22,7 +24,6 @@
             android:layout_height="@dimen/space100"
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="30dp"
-            android:layout_marginTop="@dimen/space20"
             android:src="@mipmap/ic_launcher" />
 
         <android.support.design.widget.TextInputLayout
@@ -35,10 +36,12 @@
                 android:id="@+id/email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/email_addess"
+                android:hint="@string/email"
                 android:inputType="textEmailAddress"
-                android:textColor="@android:color/black"
-                android:textColorHint="@android:color/black" />
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textColor="@color/colorPrimary" />
+
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -49,53 +52,36 @@
 
             <EditText
                 android:id="@+id/password"
-                android:layout_width="fill_parent"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:focusableInTouchMode="true"
                 android:hint="@string/hint_password"
+                android:imeOptions="actionUnspecified"
                 android:inputType="textPassword"
-                android:textColor="@android:color/black"
-                android:textColorHint="@android:color/black" />
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textColor="@color/colorPrimary" />
+
         </android.support.design.widget.TextInputLayout>
 
-        <!-- Login Button -->
-
-      <LinearLayout
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:orientation="horizontal">
-          <Button
-              android:id="@+id/btn_facebook"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:layout_marginTop="20dip"
-              android:layout_marginLeft="@dimen/space16"
-              android:layout_marginRight="@dimen/space16"
-              android:background="@color/colorAccent"
-              android:text="facebook"
-              android:layout_weight="1"
-              android:textColor="@android:color/white" />
-
-          <Button
-              android:id="@+id/btn_login"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:layout_marginTop="20dip"
-              android:layout_marginLeft="@dimen/space16"
-              android:layout_marginRight="@dimen/space16"
-              android:background="@color/colorAccent"
-              android:text="@string/btn_login"
-              android:textColor="@android:color/white"
-              android:layout_weight="1"
-              />
-      </LinearLayout>
+        <Button
+            android:id="@+id/sign_up_button"
+            style="?android:textAppearanceSmall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@color/colorAccent"
+            android:text="@string/register_"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:layout_marginLeft="@dimen/space16"
+            android:layout_marginRight="@dimen/space16"/>
 
         <Button
             android:id="@+id/btn_reset_password"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="@dimen/space16"
-            android:layout_marginRight="@dimen/space16"
+            android:layout_marginTop="20dip"
             android:background="@null"
             android:text="@string/btn_forgot_password"
             android:textAllCaps="false"
@@ -104,17 +90,15 @@
         <!-- Link to Login Screen -->
 
         <Button
-            android:id="@+id/btn_signup"
+            android:id="@+id/sign_in_button"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dip"
             android:background="@null"
-            android:text="@string/register_"
+            android:text="@string/btn_link_to_login"
             android:textAllCaps="false"
             android:textColor="@color/colorPrimary"
-            android:textSize="15dp"
-            android:layout_marginLeft="@dimen/space16"
-            android:layout_marginRight="@dimen/space16"/>
+            android:textSize="15dp" />
     </LinearLayout>
 
     <ProgressBar

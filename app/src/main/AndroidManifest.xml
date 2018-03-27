@@ -13,7 +13,8 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:name=".utils.App">
         <activity
             android:name=".controller.SplashScreen"
             android:label="@string/app_name"
@@ -25,7 +26,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".controller.MoreActivity" />
-        <activity android:name=".controller.HomeActivity" />
         <activity android:name=".controller.GlobalMarketActivity" />
         <activity android:name=".controller.NewsActivity" />
         <activity android:name=".controller.NewsDetails" />
@@ -34,7 +34,9 @@
         <activity android:name=".controller.PortofolioActivity" />
         <activity android:name=".controller.WalletActivity" />
         <activity android:name=".controller.MainActivity" />
-        <activity android:name=".controller.wallet.LoginActivity"></activity>
+        <activity android:name=".controller.wallet.ForgotPassword" />
+        <activity android:name=".controller.wallet.LoginActivity" />
+        <activity android:name=".controller.wallet.SignupActivity"></activity>
     </application>
 
 </manifest>

@@ -15,7 +15,10 @@ import com.thinkdevs.cryptomarket.constant.AMPLITUTDE_KEY
  * Created by kevinjanvier on 22/03/2018.
  */
 class App :Application() {
+	
+	
 	companion object {
+		lateinit var pref: SharedPref
 		init {
 			AppCompatDelegate.setCompatVectorFromResourcesEnabled(true)
 		}
@@ -23,6 +26,7 @@ class App :Application() {
 	
 	
 	override fun onCreate() {
+		pref = SharedPref(applicationContext)
 		super.onCreate()
 		
 		if(BuildConfig.DEBUG){

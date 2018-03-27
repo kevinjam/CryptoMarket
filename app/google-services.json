@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "93034197944",
+    "firebase_url": "https://crypto-market-application.firebaseio.com",
+    "project_id": "crypto-market-application",
+    "storage_bucket": "crypto-market-application.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:93034197944:android:e591f9bd0ef98b1b",
+        "android_client_info": {
+          "package_name": "com.thinkdevs.cryptomarket"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "93034197944-b981iauql965u9kl56bhqmlhghi31krl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBATtOuSEJNfQKegrs0EMEQ-joTzA9OiXg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

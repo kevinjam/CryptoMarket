@@ -5,6 +5,14 @@
         android:id="@+id/wallet"
         android:orderInCategory="100"
         android:title="@string/wallet"
-        android:icon="@drawable/ic_menu_walet"
-        app:showAsAction="never" />
+        app:showAsAction="never"
+      />
+
+    <item
+        android:id="@+id/logout"
+        android:orderInCategory="100"
+        android:title="@string/logout_btn"
+        app:showAsAction="never"
+      />
+
 </menu>

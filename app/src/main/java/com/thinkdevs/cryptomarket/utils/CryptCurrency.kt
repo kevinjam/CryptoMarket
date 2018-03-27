@@ -14,7 +14,6 @@ import org.json.JSONObject
 object CryptCurrency {
 	fun toStringGson() = GsonBuilder().setPrettyPrinting().create()
 	
-	
 	fun isNetworkAvailable(context: Context): Boolean {
 		val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
 		val activeNetworkInfo = connectivityManager.activeNetworkInfo

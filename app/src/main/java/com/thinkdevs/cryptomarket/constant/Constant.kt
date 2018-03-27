@@ -13,3 +13,8 @@ const val ADMOB_UNIT ="ca-app-pub-8831705983843599/7843330965"
 const val ADMOB_ID_BANNER="ca-app-pub-8831705983843599~9651236657"
 const val ADMOB_ID_BANNER_TEST="ca-app-pub-3940256099942544~3347511713"
 const val AMPLITUTDE_KEY="7da3c7a837561c4624ad1b5d70bd0538"
+
+const val PREF_FILENAME = "crypto_market"
+const val EMAIL_ID ="email_id"
+const val USER_LOGIN = "user_login"
+

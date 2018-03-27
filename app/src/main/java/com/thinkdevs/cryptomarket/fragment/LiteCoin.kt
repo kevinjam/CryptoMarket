@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 
 import com.thinkdevs.cryptomarket.R
 import com.thinkdevs.cryptomarket.model.Crypto
@@ -20,6 +21,7 @@ import kotlinx.android.synthetic.main.fragment_news.*
  * A simple [Fragment] subclass.
  */
 class LiteCoin : Fragment() {
+	lateinit var no_internet:TextView
 	
 	var composite: CompositeDisposable? = null
 	
@@ -28,6 +30,7 @@ class LiteCoin : Fragment() {
 							  savedInstanceState: Bundle?): View? {
 		// Inflate the layout for this fragment
 		val view = inflater!!.inflate(R.layout.fragment_news, container, false)
+		no_internet = view.findViewById(R.id.no_internet)
 		composite = CompositeDisposable()
 		getBitcoins()
 		return view

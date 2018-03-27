@@ -60,7 +60,7 @@ class BitCoinAdapter(var context: Context, var list: ArrayList<CryptoModel>) : R
 					
 				}
 			}else{
-				changeCoin.setTextColor(Color.YELLOW)
+				changeCoin.setTextColor(Color.MAGENTA)
 				
 			}
 			
