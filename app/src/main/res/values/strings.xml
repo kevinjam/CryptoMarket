@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">CryptoMarket</string>
+    <string name="app_name">Crypto Market</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -12,4 +12,7 @@
     <string name="market_capitalisation">Market Capitalizations</string>
     <string name="email_addess">info@thinkdevs.com</string>
     <string name="add_unit">ca-app-pub-8831705983843599/7843330965</string>
+    <string name="no_connection">No connectivity</string>
+    <string name="latest_news">Latest News</string>
+    <string name="welcome_myTithe">Welcome to Crypto Market</string>
 </resources>

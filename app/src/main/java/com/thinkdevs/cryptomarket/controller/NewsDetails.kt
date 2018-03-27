@@ -13,6 +13,7 @@ import kotlinx.android.synthetic.main.toolbar.view.*
 import android.widget.Toast
 import android.content.ActivityNotFoundException
 import android.net.Uri
+import android.util.Log
 
 
 class NewsDetails : AppCompatActivity() {
@@ -34,7 +35,12 @@ class NewsDetails : AppCompatActivity() {
 		news_title.text = model.title
 		news_description.text = model.description
 		
+		Log.e("MY_CLASS =====" , "Class ${model}")
+		
 		news_toolbar.coinName.text =model.source.name
+		if (model.author != null){
+			authorName.text = model.author
+		}
 		news_toolbar.nav_share.setOnClickListener { share(model) }
 		
 		

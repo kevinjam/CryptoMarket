@@ -46,7 +46,7 @@ class ArticleAdapter(var context:Context, var list:ArrayList<Articles>):Recycler
 		
 		fun bindnews(context: Context,model:Articles){
 			newsTitle.text = model.title.substring(0, 20) +"..."
-			newsDescp.text = model.title
+			newsDescp.text = model.description.subSequence(0, 42)
 			newsDate.text = model.publishedAt
 			
 			Glide.with(context).load(model.urlToImage).into(newsImage)

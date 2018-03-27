@@ -14,6 +14,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_news.*
+import kotlinx.android.synthetic.main.activity_news_details.view.*
 import kotlinx.android.synthetic.main.toolbar.view.*
 
 class NewsActivity : AppCompatActivity() {
@@ -26,6 +27,7 @@ class NewsActivity : AppCompatActivity() {
 		
 		news_toolbar.coinImage.visibility = View.GONE
 		news_toolbar.nav_nack.setOnClickListener { onBackPressed() }
+		news_toolbar.coinName.text = getString(R.string.latest_news)
 		
 		recyclerView = findViewById(R.id.recyclerView)
 		val layoutManager =LinearLayoutManager(this)
@@ -36,24 +38,29 @@ class NewsActivity : AppCompatActivity() {
 	}
 	
 	fun getNews() {
+		log("START GETTTING THE NEWS")
 		progressbar.visibility = View.VISIBLE
-		val service = Helper.newsUrl()
+		val service = Helper.newsUrl(this)
 		composit!!.add(service.getnews()
 				.observeOn(AndroidSchedulers.mainThread())
 				.subscribeOn(Schedulers.io())
 				.subscribe({ response ->
+					log("I have the news now $response")
 					if (response.status == "ok") {
 						genewsdetails(response.articles)
 						progressbar.visibility = View.GONE
 						
 					} else {
+						log("No news boy")
 					
 					}
 				}, { error ->
-					log("Errror ${error.message}")
-					log("Errror ${error.printStackTrace()}")
+					no_internet.visibility = View.VISIBLE
+					recyclerView.visibility = View.GONE
+					progressbar.visibility = View.GONE
 					
-					log("Errror ${error.localizedMessage}")
+					no_internet.text =  getString(R.string.no_connection)
+					
 					
 				})
 		)

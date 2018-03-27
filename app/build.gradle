@@ -16,12 +16,16 @@ android {
         versionName versions.version_name
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         //strip other than english resources
+        vectorDrawables.useSupportLibrary = true
+
         resConfig("en")
+        multiDexEnabled true
+
     }
     buildTypes {
         release {
-            minifyEnabled true
-            shrinkResources true
+            minifyEnabled false
+            shrinkResources false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -54,10 +58,9 @@ dependencies {
     implementation deps.glide_img_google
     implementation 'com.android.support:cardview-v7:26.1.0'
     implementation deps.anko_version
-    implementation 'im.dacer:AndroidCharts:1.0.4'
     implementation 'com.splunk.mint:mint:4.4.0'
     implementation deps.amplitude
     implementation deps.ads_mobs
-
+    implementation deps.chart
 
 }

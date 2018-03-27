@@ -11,6 +11,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
+import android.widget.TextView
 
 import com.thinkdevs.cryptomarket.R
 import com.thinkdevs.cryptomarket.adapter.BitCoinAdapter
@@ -29,10 +30,12 @@ class BitCoin : Fragment() {
 	lateinit var bitcoin_rec: RecyclerView
 	lateinit var progress:ProgressBar
 	var composite: CompositeDisposable?=null
+	lateinit var no_Internet :TextView
 	override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 		val view = inflater!!.inflate(R.layout.bit_coin, container, false)
 		bitcoin_rec = view.findViewById(R.id.bitcoin_rec)
 		progress = view.findViewById(R.id.progress)
+		no_Internet = view.findViewById(R.id.internet_error)
 
 		bitcoin_rec.setHasFixedSize(true)
 		val layoutManager : RecyclerView.LayoutManager = LinearLayoutManager(activity)
@@ -51,6 +54,7 @@ class BitCoin : Fragment() {
 		composite!!.add(apiservice.getbitcoin()
 				.observeOn(AndroidSchedulers.mainThread())
 				.subscribeOn(Schedulers.io())
+				
 				.subscribe(
 						{ result ->
 							handlResponse(result)
@@ -65,14 +69,17 @@ class BitCoin : Fragment() {
 	}
 	
 	private fun handlResponse(list:ArrayList<CryptoModel>) {
-		val adapter = BitCoinAdapter(activity.applicationContext, list)
+		val adapter = BitCoinAdapter(activity, list)
 		bitcoin_rec.adapter = adapter
 	
 	}
 	
 	private fun handleError(error: Throwable) {
-	
-	
+		progress.visibility = View.GONE
+		bitcoin_rec.visibility=View.GONE
+		no_Internet.visibility = View.VISIBLE
+		
+		no_Internet.text = getString(R.string.no_connection)
 	}
 	
 	override fun onDestroy() {

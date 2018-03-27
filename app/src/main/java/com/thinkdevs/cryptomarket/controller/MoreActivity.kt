@@ -41,6 +41,8 @@ class MoreActivity : AppCompatActivity() {
 		change24.text = model.percent_change_24h
 		change7.text = model.percent_change_7d
 		
+		println("")
+		
 		val unix_seconds:Long =model.last_updated.toLong()
 		val date =Date(unix_seconds*1000L)
 		//Simple
@@ -462,7 +464,7 @@ class MoreActivity : AppCompatActivity() {
 		share.putExtra(Intent.EXTRA_TEXT, "Change 1h: % ${model.percent_change_1h}")
 		share.putExtra(Intent.EXTRA_TEXT, "Change 24h: % ${model.percent_change_24h}")
 		share.putExtra(Intent.EXTRA_TEXT, "Change 7d: % ${model.percent_change_7d}")
-		share.putExtra(Intent.EXTRA_TEXT, "Hey checkout this Soccer App " + "\n Download it from playStore "+ " "
+		share.putExtra(Intent.EXTRA_TEXT, "Hey checkout Crypto Market " + "\n Latest News "+ ""
 				+ Uri.parse(message))
 		startActivity(Intent.createChooser(share, "Shared via : "))
 	}

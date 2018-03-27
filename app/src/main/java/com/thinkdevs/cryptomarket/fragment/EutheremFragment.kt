@@ -1,7 +1,6 @@
 package com.thinkdevs.cryptomarket.fragment
 
 
-import android.graphics.Color
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
@@ -11,11 +10,20 @@ import android.view.ViewGroup
 import com.thinkdevs.cryptomarket.R
 import com.thinkdevs.cryptomarket.model.Crypto
 import com.thinkdevs.cryptomarket.model.Helper
-import im.dacer.androidcharts.LineView
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_news.*
+import android.widget.SeekBar
+import com.github.mikephil.charting.charts.BarChart
+import com.github.mikephil.charting.components.XAxis
+import com.github.mikephil.charting.components.Legend.LegendForm
+import com.github.mikephil.charting.components.Legend
+import com.github.mikephil.charting.data.BarData
+import com.github.mikephil.charting.data.BarDataSet
+import com.github.mikephil.charting.data.BarEntry
+import com.github.mikephil.charting.interfaces.datasets.IBarDataSet
+import com.github.mikephil.charting.utils.ColorTemplate
 
 
 /**
@@ -23,7 +31,11 @@ import kotlinx.android.synthetic.main.fragment_news.*
  */
 class EutheremFragment : Fragment() {
 	var composite: CompositeDisposable? = null
-	var randomint = 9
+	
+	lateinit var mChart: BarChart
+	private val mSeekBarX: SeekBar? = null
+	val mSeekBarY: SeekBar? = null
+	var arraylist = ArrayList<Crypto>()
 	
 	
 	override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
@@ -31,15 +43,33 @@ class EutheremFragment : Fragment() {
 		// Inflate the layout for this fragment
 		val view = inflater!!.inflate(R.layout.fragment_news, container, false)
 		composite = CompositeDisposable()
+		
+		mChart = view.findViewById(R.id.chart1)
+		
+		mChart.setDrawBarShadow(false)
+		mChart.setDrawValueAboveBar(false)
+		mChart.description.isEnabled = false
+
+
+//		val mv = XYMarkerView(this, xAxisFormatter)
+//		mv.setChartView(mChart) // For bounds control
+		//mChart.marker = mv // Set the marker to the chart
+		
+		
+		setUpbar()
+		
 		getBitcoins()
 		
-		val lineView = view.findViewById(R.id.line_view_float) as LineView
-		initLineView(lineView)
-		randomSet(lineView)
+		
 		
 		
 		return view
 	}
+	
+	fun setUpbar() {
+	
+	}
+	
 	
 	fun getBitcoins() {
 		val apiservice = Helper.mainUrl()
@@ -58,14 +88,50 @@ class EutheremFragment : Fragment() {
 	}
 	
 	private fun handleError(error: Throwable?) {
-		println("error $error")
+		no_internet.visibility = View.VISIBLE
+		no_internet.text = getString(R.string.no_connection)
 		
 	}
 	
 	private fun handlResponse(result: ArrayList<Crypto>) {
-		println("Results goes here $result")
+		arraylist = result
+//		println("Results goes here $arraylist")
+		// if more than 60 entries are displayed in the chart, no values will be
+		// drawn
+		mChart.setMaxVisibleValueCount(60)
 		
-		result.forEach { model ->
+		mChart.setPinchZoom(false)
+		
+		mChart.setDrawGridBackground(false)
+		
+		val xAxis = mChart.xAxis
+		xAxis.position = XAxis.XAxisPosition.BOTTOM
+		xAxis.setDrawGridLines(false)
+		xAxis.granularity = 1f // only intervals of 1 day
+		xAxis.labelCount = 7
+		
+		
+		val rightAxis = mChart.axisRight
+		rightAxis.setDrawGridLines(false)
+//		rightAxis.typeface = mTfLight
+		rightAxis.setLabelCount(8, false)
+//		rightAxis.valueFormatter = custom
+		rightAxis.spaceTop = 15f
+		rightAxis.axisMinimum = 0f // this replaces setStartAtZero(true)
+		
+		
+		val l = mChart.legend
+		l.verticalAlignment = Legend.LegendVerticalAlignment.BOTTOM
+		l.horizontalAlignment = Legend.LegendHorizontalAlignment.LEFT
+		l.orientation = Legend.LegendOrientation.HORIZONTAL
+		l.setDrawInside(false)
+		l.form = LegendForm.SQUARE
+		l.formSize = 9f
+		l.textSize = 11f
+		l.xEntrySpace = 4f
+		
+		
+		arraylist.forEach { model ->
 			coin_name.text = model.name
 			coin_prince.text = "$ ${model.price_usd}"
 			symbol.text = model.symbol
@@ -80,73 +146,70 @@ class EutheremFragment : Fragment() {
 				}
 			}
 			
+			//setData(12, model.market_cap_usd.toFloat(), result)
+			
 			
 		}
 	}
 	
 	
-	private fun initLineView(lineView: LineView) {
-		val test = java.util.ArrayList<String>()
-		for (i in 0 until randomint) {
-			test.add((i + 1).toString())
+	private fun setData(count: Int, range: Float, result: ArrayList<Crypto>) {
+//		println("===range $range")
+//		println("===count $count")
+		
+		val start = 1f
+		
+		val yVals1 = ArrayList<BarEntry>()
+		
+		result.forEachIndexed { index, crypto ->
+			
+			//			println("Rank -- ${crypto.rank}")
+			
+			
 		}
-		lineView.setBottomTextList(test)
-		lineView.setColorArray(intArrayOf(Color.parseColor("#F44336"),
-				Color.parseColor("#9C27B0"), Color.parseColor("#2196F3"), Color.parseColor("#009688")))
-		lineView.setDrawDotLine(true)
-		lineView.setShowPopup(LineView.SHOW_POPUPS_NONE)
+//		println("Outside an array $result")
+		
+		var i = start.toInt()
+		while (i < start + count.toFloat() + 1f) {
+			val mult = range + 1
+//			println("===range $range")
+			val doub = (Math.random() * mult).toFloat()
+			yVals1.add(BarEntry(i.toFloat(), doub))
+
+//			if (Math.random() * 100 < 25) {
+////				yVals1.add(BarEntry(i.toFloat(), `val`, resources.getDrawable(R.drawable.star)))
+//			} else {
+//				yVals1.add(BarEntry(i.toFloat(), doub))
+////					yVals1.add(BarEntry(index.toFloat(), crypto.rank.toFloat()))
+//
+//			}
+//			i++
+		}
+		val set1: BarDataSet
+		
+		if (mChart.data != null && mChart.data.dataSetCount > 0) {
+			set1 = mChart.data.getDataSetByIndex(0) as BarDataSet
+			set1.values = yVals1
+			mChart.data.notifyDataChanged()
+			mChart.notifyDataSetChanged()
+		} else {
+			set1 = BarDataSet(yVals1, "The year 2017")
+			
+			set1.setDrawIcons(false)
+			
+			set1.setColors(*ColorTemplate.MATERIAL_COLORS)
+			
+			val dataSets = ArrayList<IBarDataSet>()
+			dataSets.add(set1)
+			
+			val data = BarData(dataSets)
+			data.setValueTextSize(10f)
+			//data.setValueTypeface(mTfLight)
+			data.barWidth = 0.9f
+			
+			mChart.data = data
+		}
 	}
 	
-	private fun randomSet(lineView: LineView) {
-		val dataList = java.util.ArrayList<Int>()
-		var random = (Math.random() * 9 + 1).toFloat()
-		for (i in 0 until randomint) {
-			dataList.add((Math.random() * random).toInt())
-		}
-		
-		val dataList2 = java.util.ArrayList<Int>()
-		random = (Math.random() * 9 + 1).toInt().toFloat()
-		for (i in 0 until randomint) {
-			dataList2.add((Math.random() * random).toInt())
-		}
-		
-		val dataList3 = java.util.ArrayList<Int>()
-		random = (Math.random() * 9 + 1).toInt().toFloat()
-		for (i in 0 until randomint) {
-			dataList3.add((Math.random() * random).toInt())
-		}
-		
-		val dataLists = java.util.ArrayList<java.util.ArrayList<Int>>()
-		dataLists.add(dataList)
-		dataLists.add(dataList2)
-		dataLists.add(dataList3)
-		
-		lineView.setDataList(dataLists)
-		
-		val dataListF = java.util.ArrayList<Float>()
-		var randomF = (Math.random() * 9 + 1).toFloat()
-		for (i in 0 until randomint) {
-			dataListF.add((Math.random() * randomF).toFloat())
-		}
-		
-		val dataListF2 = java.util.ArrayList<Float>()
-		randomF = (Math.random() * 9 + 1).toInt().toFloat()
-		for (i in 0 until randomint) {
-			dataListF2.add((Math.random() * randomF).toFloat())
-		}
-		
-		val dataListF3 = java.util.ArrayList<Float>()
-		randomF = (Math.random() * 9 + 1).toInt().toFloat()
-		for (i in 0 until randomint) {
-			dataListF3.add((Math.random() * randomF).toFloat())
-		}
-		
-		val dataListFs = java.util.ArrayList<java.util.ArrayList<Float>>()
-		dataListFs.add(dataListF)
-		dataListFs.add(dataListF2)
-		dataListFs.add(dataListF3)
-		
-		lineView.setFloatDataList(dataListFs)
-	}
 	
 }

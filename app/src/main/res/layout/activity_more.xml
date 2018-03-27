@@ -1,390 +1,386 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.thinkdevs.cryptomarket.controller.MoreActivity"
-    tools:layout_editor_absoluteY="25dp">
-
-    <include
-        android:id="@+id/coinbar"
-        layout="@layout/toolbar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="Cryptocurrency Market Capitalizations"
-        android:textAlignment="center"
-        android:textColor="@android:color/black"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/coinbar" />
-
-    <TextView
-        android:id="@+id/latest_Updates"
-        android:layout_width="156dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:text="Last Updated"
-        android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="@+id/coinpriceUpdate"
-        app:layout_constraintStart_toStartOf="@+id/coinpriceUpdate"
-        app:layout_constraintTop_toBottomOf="@+id/coinpriceUpdate" />
-
-    <TextView
-        android:id="@+id/coinpriceUpdate"
-        android:layout_width="172dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="$8,566.15"
-        android:textAlignment="center"
-        android:textColor="@android:color/black"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
-
-    <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="368dp"
-        android:layout_height="343dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/latest_Updates">
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="@dimen/space5"
-            android:background="@color/grey_clean">
-
-            <TextView
-                android:id="@+id/bitcoin"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Bitcoin : "
-                android:textSize="15sp"
-                app:layout_constraintTop_toBottomOf="@+id/latest_Updates"
-                tools:layout_editor_absoluteX="16dp"
-                android:textColor="@android:color/black"
-                />
-
-            <TextView
-                android:id="@+id/name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Bitcoin"
-                android:textColor="@android:color/black"
-                app:layout_constraintTop_toBottomOf="@+id/latest_Updates"
-                tools:layout_editor_absoluteX="16dp" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="@dimen/space5"
-            android:background="#FAFAFA">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Price (USD) : "
-                app:layout_constraintTop_toBottomOf="@+id/latest_Updates"
-                tools:layout_editor_absoluteX="16dp" />
-
-            <TextView
-                android:id="@+id/price_usd"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Bitcoin"
-                app:layout_constraintTop_toBottomOf="@+id/latest_Updates"
-                tools:layout_editor_absoluteX="16dp" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="@dimen/space5"
-            android:background="@color/grey_clean"
-            >
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Price (BTC)"
-                app:layout_constraintTop_toBottomOf="@+id/latest_Updates"
-                tools:layout_editor_absoluteX="16dp" />
-
-            <TextView
-                android:id="@+id/price_btc"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Bitcoin"
-                app:layout_constraintTop_toBottomOf="@+id/latest_Updates"
-                tools:layout_editor_absoluteX="16dp" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="@dimen/space5">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="24h Volume : "
-                app:layout_constraintTop_toBottomOf="@+id/latest_Updates"
-                tools:layout_editor_absoluteX="16dp" />
-
-            <TextView
-                android:id="@+id/hours24"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Bitcoin"
-                app:layout_constraintTop_toBottomOf="@+id/latest_Updates"
-                tools:layout_editor_absoluteX="16dp" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="@dimen/space5"
-            android:background="@color/grey_clean"
-            >
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Market Cap : "
-                app:layout_constraintTop_toBottomOf="@+id/latest_Updates"
-                tools:layout_editor_absoluteX="16dp" />
-
-            <TextView
-                android:id="@+id/market_cap"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Bitcoin"
-                app:layout_constraintTop_toBottomOf="@+id/latest_Updates"
-                tools:layout_editor_absoluteX="16dp" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="@dimen/space5">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Available Supply : "
-                app:layout_constraintTop_toBottomOf="@+id/latest_Updates"
-                tools:layout_editor_absoluteX="16dp" />
-
-            <TextView
-                android:id="@+id/available_supply"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Bitcoin"
-                app:layout_constraintTop_toBottomOf="@+id/latest_Updates"
-                tools:layout_editor_absoluteX="16dp" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="@dimen/space5"
-            android:background="@color/grey_clean"
-            >
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Total Supply : "
-                app:layout_constraintTop_toBottomOf="@+id/latest_Updates"
-                tools:layout_editor_absoluteX="16dp" />
-
-            <TextView
-                android:id="@+id/total_supply"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Bitcoin"
-                app:layout_constraintTop_toBottomOf="@+id/latest_Updates"
-                tools:layout_editor_absoluteX="16dp" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="@dimen/space5">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Max Supply : "
-                app:layout_constraintTop_toBottomOf="@+id/latest_Updates"
-                tools:layout_editor_absoluteX="16dp" />
-
-            <TextView
-                android:id="@+id/max_supply"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Bitcoin"
-                app:layout_constraintTop_toBottomOf="@+id/latest_Updates"
-                tools:layout_editor_absoluteX="16dp" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="@dimen/space5"
-            android:background="@color/grey_clean"
-            >
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Change 1h : "
-                app:layout_constraintTop_toBottomOf="@+id/latest_Updates"
-                tools:layout_editor_absoluteX="16dp" />
-
-            <TextView
-                android:id="@+id/change1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Bitcoin"
-                app:layout_constraintTop_toBottomOf="@+id/latest_Updates"
-                tools:layout_editor_absoluteX="16dp" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="@dimen/space5">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Change 24h : "
-                app:layout_constraintTop_toBottomOf="@+id/latest_Updates"
-                tools:layout_editor_absoluteX="16dp" />
-
-            <TextView
-                android:id="@+id/change24"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Bitcoin"
-                app:layout_constraintTop_toBottomOf="@+id/latest_Updates"
-                tools:layout_editor_absoluteX="16dp" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="@dimen/space5"
-            android:background="@color/grey_clean"
-            >
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Change 7d : "
-                app:layout_constraintTop_toBottomOf="@+id/latest_Updates"
-                tools:layout_editor_absoluteX="16dp" />
-
-            <TextView
-                android:id="@+id/change7"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Bitcoin"
-                app:layout_constraintTop_toBottomOf="@+id/latest_Updates"
-                tools:layout_editor_absoluteX="16dp" />
-
-        </LinearLayout>
-
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout4"
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:gravity="center_horizontal"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-        <com.google.android.gms.ads.AdView
-            xmlns:ads="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/moreads"
-            android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        tools:context="com.thinkdevs.cryptomarket.controller.MoreActivity"
+        tools:layout_editor_absoluteY="25dp">
+
+
+        <include
+            android:id="@+id/coinbar"
+            layout="@layout/toolbar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_alignParentBottom="true"
-            ads:adSize="BANNER"
-            ads:adUnitId="@string/add_unit">
-        </com.google.android.gms.ads.AdView>
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Cryptocurrency Market Capitalizations"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/coinbar" />
+
+        <TextView
+            android:id="@+id/latest_Updates"
+            android:layout_width="156dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:text="Last Updated"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="@+id/coinpriceUpdate"
+            app:layout_constraintStart_toStartOf="@+id/coinpriceUpdate"
+            app:layout_constraintTop_toBottomOf="@+id/coinpriceUpdate" />
+
+        <TextView
+            android:id="@+id/coinpriceUpdate"
+            android:layout_width="172dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="$8,566.15"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/latest_Updates">
 
 
-    </LinearLayout>
-</android.support.constraint.ConstraintLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/grey_clean"
+                android:orientation="horizontal"
+                android:padding="@dimen/space5">
+
+                <TextView
+                    android:id="@+id/bitcoin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Bitcoin : "
+                    android:textColor="@android:color/black"
+                    android:textSize="15sp"
+                    app:layout_constraintTop_toBottomOf="@+id/latest_Updates"
+                    tools:layout_editor_absoluteX="16dp" />
+
+                <TextView
+                    android:id="@+id/name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Bitcoin"
+                    android:textColor="@android:color/black"
+                    app:layout_constraintTop_toBottomOf="@+id/latest_Updates"
+                    tools:layout_editor_absoluteX="16dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FAFAFA"
+                android:orientation="horizontal"
+                android:padding="@dimen/space5">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Price (USD) : "
+                    app:layout_constraintTop_toBottomOf="@+id/latest_Updates"
+                    tools:layout_editor_absoluteX="16dp" />
+
+                <TextView
+                    android:id="@+id/price_usd"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Bitcoin"
+                    app:layout_constraintTop_toBottomOf="@+id/latest_Updates"
+                    tools:layout_editor_absoluteX="16dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/grey_clean"
+                android:orientation="horizontal"
+                android:padding="@dimen/space5">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Price (BTC)"
+                    app:layout_constraintTop_toBottomOf="@+id/latest_Updates"
+                    tools:layout_editor_absoluteX="16dp" />
+
+                <TextView
+                    android:id="@+id/price_btc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Bitcoin"
+                    app:layout_constraintTop_toBottomOf="@+id/latest_Updates"
+                    tools:layout_editor_absoluteX="16dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="@dimen/space5">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="24h Volume : "
+                    app:layout_constraintTop_toBottomOf="@+id/latest_Updates"
+                    tools:layout_editor_absoluteX="16dp" />
+
+                <TextView
+                    android:id="@+id/hours24"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Bitcoin"
+                    app:layout_constraintTop_toBottomOf="@+id/latest_Updates"
+                    tools:layout_editor_absoluteX="16dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/grey_clean"
+                android:orientation="horizontal"
+                android:padding="@dimen/space5">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Market Cap : "
+                    app:layout_constraintTop_toBottomOf="@+id/latest_Updates"
+                    tools:layout_editor_absoluteX="16dp" />
+
+                <TextView
+                    android:id="@+id/market_cap"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Bitcoin"
+                    app:layout_constraintTop_toBottomOf="@+id/latest_Updates"
+                    tools:layout_editor_absoluteX="16dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="@dimen/space5">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Available Supply : "
+                    app:layout_constraintTop_toBottomOf="@+id/latest_Updates"
+                    tools:layout_editor_absoluteX="16dp" />
+
+                <TextView
+                    android:id="@+id/available_supply"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Bitcoin"
+                    app:layout_constraintTop_toBottomOf="@+id/latest_Updates"
+                    tools:layout_editor_absoluteX="16dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/grey_clean"
+                android:orientation="horizontal"
+                android:padding="@dimen/space5">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Total Supply : "
+                    app:layout_constraintTop_toBottomOf="@+id/latest_Updates"
+                    tools:layout_editor_absoluteX="16dp" />
+
+                <TextView
+                    android:id="@+id/total_supply"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Bitcoin"
+                    app:layout_constraintTop_toBottomOf="@+id/latest_Updates"
+                    tools:layout_editor_absoluteX="16dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="@dimen/space5">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Max Supply : "
+                    app:layout_constraintTop_toBottomOf="@+id/latest_Updates"
+                    tools:layout_editor_absoluteX="16dp" />
+
+                <TextView
+                    android:id="@+id/max_supply"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Bitcoin"
+                    app:layout_constraintTop_toBottomOf="@+id/latest_Updates"
+                    tools:layout_editor_absoluteX="16dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/grey_clean"
+                android:orientation="horizontal"
+                android:padding="@dimen/space5">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Change 1h : "
+                    app:layout_constraintTop_toBottomOf="@+id/latest_Updates"
+                    tools:layout_editor_absoluteX="16dp" />
+
+                <TextView
+                    android:id="@+id/change1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Bitcoin"
+                    app:layout_constraintTop_toBottomOf="@+id/latest_Updates"
+                    tools:layout_editor_absoluteX="16dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="@dimen/space5">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Change 24h : "
+                    app:layout_constraintTop_toBottomOf="@+id/latest_Updates"
+                    tools:layout_editor_absoluteX="16dp" />
+
+                <TextView
+                    android:id="@+id/change24"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Bitcoin"
+                    app:layout_constraintTop_toBottomOf="@+id/latest_Updates"
+                    tools:layout_editor_absoluteX="16dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/grey_clean"
+                android:orientation="horizontal"
+                android:padding="@dimen/space5">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Change 7d : "
+                    app:layout_constraintTop_toBottomOf="@+id/latest_Updates"
+                    tools:layout_editor_absoluteX="16dp" />
+
+                <TextView
+                    android:id="@+id/change7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Bitcoin"
+                    app:layout_constraintTop_toBottomOf="@+id/latest_Updates"
+                    tools:layout_editor_absoluteX="16dp" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout4"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+            <com.google.android.gms.ads.AdView
+                xmlns:ads="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/moreads"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true"
+                ads:adSize="BANNER"
+                ads:adUnitId="@string/add_unit">
+            </com.google.android.gms.ads.AdView>
+
+
+        </LinearLayout>
+    </android.support.constraint.ConstraintLayout>

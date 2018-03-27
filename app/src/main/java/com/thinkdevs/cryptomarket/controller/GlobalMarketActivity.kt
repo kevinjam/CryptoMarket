@@ -51,6 +51,10 @@ class GlobalMarketActivity : AppCompatActivity() {
 							getResult(result)
 						},
 						{ error ->
+							contrainview_.visibility= View.VISIBLE
+							no_internet.text = getString(R.string.no_connection)
+							progressBar.visibility = View.GONE
+							linearLayout2.visibility =View.GONE
 							log("Errror ${error.message}")
 						}
 				))
@@ -60,8 +64,6 @@ class GlobalMarketActivity : AppCompatActivity() {
 	private fun getResult(result: GlobalMarket) {
 		contrainview_.visibility = View.GONE
 		
-		log("result $result")
-		log("Total====== ${result.bitcoin_percentage_of_market_cap}")
 //		totalMarket.text = String.format("%.3fBillion", result.total_market_cap_usd.toLong()/1000000000)
 		totalMarket.text = " ${withSuffix(result.total_market_cap_usd.toLong())} Billion"
 		total_24h.text = " ${withSuffix(result.total_24h_volume_usd.toLong())} Billion"
@@ -73,7 +75,6 @@ class GlobalMarketActivity : AppCompatActivity() {
 		
 		val testing:Long = result.total_market_cap_usd.toLong()
 		
-		log("Coin Base --- ${withSuffix(testing)}")
 	}
 	
 	private fun log(msg: String) {

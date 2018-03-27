@@ -22,19 +22,21 @@
 
     <TextView
         android:id="@+id/news_description"
-        android:layout_width="233dp"
-        android:layout_height="39dp"
+        android:layout_width="0dp"
+        android:layout_height="44dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:text="Vestibulum id ligula porta felis euismod semper. Cras mattis consectetur purus sit amet fermentum."
+        android:textSize="@dimen/txt13"
+        android:text="Vestibulum id ligula porta felis euismod semper sempersemper."
+        android:textColor="@android:color/black"
         app:layout_constraintEnd_toStartOf="@+id/news_image"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/news_title_sub" />
 
     <ImageView
         android:id="@+id/news_image"
-        android:layout_width="124dp"
+        android:layout_width="120dp"
         android:layout_height="59dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="16dp"
@@ -52,7 +54,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:text="2018-03-21T14:15:37Z"
-        android:textColor="#A5A6A6"
+        android:textColor="@android:color/holo_red_dark"
         android:textSize="11sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

@@ -70,7 +70,11 @@ class GlobalMarket(
 
 
 class Articles(var source: SourceModel, var author: String, var title: String,
-			   var description: String, var url: String, var urlToImage: String, var publishedAt: String) : Serializable
+			   var description: String, var url: String, var urlToImage: String, var publishedAt: String) : Serializable{
+	override fun toString(): String {
+		return CryptCurrency.toStringGson().toJson(this)
+	}
+}
 
 class SourceModel(var id: String, var name: String) : Serializable
 

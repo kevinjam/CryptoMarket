@@ -20,7 +20,7 @@ interface CryptoApiService {
 	@GET("global")
 	fun getglobal(): Observable<GlobalMarket>
 	
-	@GET("top-headlines?sources=crypto-coins-news&apiKey=2f93de87387d400f9bd7d3028aef6213")
+	@GET("everything?sources=crypto-coins-news&apiKey=2f93de87387d400f9bd7d3028aef6213")
 	fun getnews(): Observable<NewsModel>
 	
 	@GET("ticker/Ethereum/?convert=EUR")

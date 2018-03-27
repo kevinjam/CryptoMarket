@@ -4,6 +4,7 @@
     android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="@dimen/space15"
     tools:context="com.thinkdevs.cryptomarket.fragment.EutheremFragment"
     tools:layout_editor_absoluteY="25dp">
 
@@ -12,24 +13,25 @@
         android:id="@+id/coin_prince"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="96dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="100000000"
         android:textColor="@color/colorPrimary"
         android:textSize="16sp"
-        app:layout_constraintEnd_toStartOf="@+id/symbol"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.343"
+        app:layout_constraintStart_toEndOf="@+id/coinImage"
+        app:layout_constraintTop_toBottomOf="@+id/coin_name" />
 
     <ImageView
         android:id="@+id/coinImage"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:layout_marginBottom="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:src="@drawable/ic_ethereum"
-        app:layout_constraintBottom_toTopOf="@+id/gridLayout2"
+        android:layout_marginTop="5dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_ethereum" />
 
     <TextView
         android:id="@+id/symbol"
@@ -38,7 +40,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginTop="8dp"
         android:text="ETH"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@color/colorAccent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -46,14 +48,13 @@
         android:id="@+id/coin_name"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="164dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="5dp"
         android:text="Ethereum"
         android:textColor="@color/colorPrimary"
         android:textSize="14sp"
-        app:layout_constraintEnd_toStartOf="@+id/coin_prince"
-        app:layout_constraintHorizontal_bias="0.111"
+        app:layout_constraintEnd_toStartOf="@+id/symbol"
         app:layout_constraintStart_toEndOf="@+id/coinImage"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -61,28 +62,59 @@
         android:id="@+id/update"
         android:layout_width="wrap_content"
         android:layout_height="24dp"
-        android:layout_marginEnd="152dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:text="Last Update "
+        app:layout_constraintBottom_toTopOf="@+id/gridLayout2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/coin_name"
-        app:layout_constraintTop_toBottomOf="@+id/coin_prince" />
+        app:layout_constraintHorizontal_bias="0.458"
+        app:layout_constraintStart_toEndOf="@+id/coinImage"
+        app:layout_constraintTop_toBottomOf="@+id/coin_prince"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <LinearLayout
+        android:id="@+id/graph"
+        android:layout_width="0dp"
+        android:layout_height="300dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gridLayout2">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="TextView" />
+
+        <include
+            android:id="@+id/chart_layout"
+            layout="@layout/bar_chart_layout" />
+    </LinearLayout>
 
     <GridLayout
         android:id="@+id/gridLayout2"
-        android:layout_width="376dp"
-        android:layout_height="80dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="0dp"
+        android:layout_height="78dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.466"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/update">
+        app:layout_constraintTop_toBottomOf="@+id/coinImage">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_column="0"
-            android:layout_margin="@dimen/space5"
+            android:layout_marginLeft="@dimen/space10"
             android:layout_row="0"
             android:text="Market Cap"
             android:textColor="@color/colorPrimary"
@@ -92,7 +124,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_column="1"
-            android:layout_margin="@dimen/space5"
+            android:layout_marginLeft="@dimen/space10"
             android:layout_row="0"
             android:text="Max Supply"
             android:textColor="@color/colorPrimary"
@@ -103,9 +135,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_column="2"
-            android:layout_margin="@dimen/space5"
+            android:layout_marginLeft="@dimen/space10"
             android:layout_row="0"
-            android:text="Available supply"
+            android:text="Available"
             android:textColor="@color/colorPrimary"
             android:textSize="16sp" />
 
@@ -144,27 +176,19 @@
             android:textSize="14sp" />
     </GridLayout>
 
-    <HorizontalScrollView
-        android:id="@+id/horizontalScrollViewFloat"
-        android:layout_width="fill_parent"
+    <TextView
+        android:id="@+id/no_internet"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true">
-
-    </HorizontalScrollView>
-
-    <view
-        android:id="@+id/line_view_float"
-        class="im.dacer.androidcharts.LineView"
-        android:layout_width="373dp"
-        android:layout_height="387dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:textSize="@dimen/txt16"
+        android:textColor="@android:color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.4"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/gridLayout2"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/gridLayout2" />
+
 </android.support.constraint.ConstraintLayout>

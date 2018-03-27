@@ -2,6 +2,7 @@ package com.thinkdevs.cryptomarket.adapter
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
 import android.support.constraint.ConstraintLayout
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -45,8 +46,23 @@ class BitCoinAdapter(var context: Context, var list: ArrayList<CryptoModel>) : R
 		fun bindview(model: CryptoModel, context: Context) {
 			coinName.text = model.name
 			marketcoin.text = "$ ${model.market_cap_usd}"
-			priceCoin.text = "$ ${model.price_usd}"
-			changeCoin.text ="${model.percent_change_24h} %"
+			priceCoin.text = "Price: $${model.price_usd}"
+			changeCoin.text ="Change: ${model.percent_change_24h} %"
+			
+			if (model.percent_change_24h.startsWith("-")){
+				if (model.percent_change_24h.startsWith("-1") || model.percent_change_24h.contentEquals("-2")){
+					println("Less than 5")
+					changeCoin.setTextColor(Color.RED)
+					
+				}else{
+					println("Greater Than 5")
+					changeCoin.setTextColor(Color.BLUE)
+					
+				}
+			}else{
+				changeCoin.setTextColor(Color.YELLOW)
+				
+			}
 			
 		
 			
@@ -72,7 +88,7 @@ class BitCoinAdapter(var context: Context, var list: ArrayList<CryptoModel>) : R
 					coinImage.setImageResource(resouldId)
 				}
 				model.symbol == "ADA" -> {
-					val resouldId = context.resources.getIdentifier("ic_ethereum", "drawable", context.packageName)
+					val resouldId = context.resources.getIdentifier("ic_ada", "drawable", context.packageName)
 					coinImage.setImageResource(resouldId)
 				}
 				model.symbol == "NEO" -> {
@@ -81,7 +97,7 @@ class BitCoinAdapter(var context: Context, var list: ArrayList<CryptoModel>) : R
 				}
 				
 				model.symbol == "XLM" -> {
-					val resouldId = context.resources.getIdentifier("ic_neo", "drawable", context.packageName)
+					val resouldId = context.resources.getIdentifier("ic_xml", "drawable", context.packageName)
 					coinImage.setImageResource(resouldId)
 				}
 				model.symbol == "EOS" -> {

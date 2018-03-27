@@ -49,10 +49,7 @@ class RippleCoin : Fragment() {
 				))
 	}
 	
-	private fun handleError(error: Throwable?) {
-		println("error $error")
-		
-	}
+	
 	
 	private fun handlResponse(result: ArrayList<Crypto>) {
 		println("Ripple ----Results goes here $result")
@@ -73,7 +70,11 @@ class RippleCoin : Fragment() {
 				}
 			}
 		}
-		
+	}
+	
+	private fun handleError(error: Throwable?) {
+		no_internet.visibility = View.VISIBLE
+		no_internet.text = getString(R.string.no_connection)
 		
 	}
 	

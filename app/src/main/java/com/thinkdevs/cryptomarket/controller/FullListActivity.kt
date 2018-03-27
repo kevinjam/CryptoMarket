@@ -57,6 +57,11 @@ class FullListActivity : AppCompatActivity() {
 					
 				},{
 					error->
+					no_internet.visibility = View.VISIBLE
+					recyclerView3.visibility = View.GONE
+					progress.visibility = View.GONE
+					
+					no_internet.text = getString(R.string.no_connection)
 				}))
 		
 	}
