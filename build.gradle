@@ -11,8 +11,8 @@ buildscript {
             "compile_sdk"      : 27,
             "min_sdk"          : 14,
             "target_sdk"       : 26,
-            "version_code"     : 2,
-            "version_name"     : "0.0.2"
+            "version_code"     : 3,
+            "version_name"     : "0.0.3"
 //            "chart":"v3.0.3"
 
 

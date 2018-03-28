@@ -24,8 +24,8 @@ android {
     }
     buildTypes {
         release {
-            minifyEnabled false
-            shrinkResources false
+            minifyEnabled true
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -63,6 +63,7 @@ dependencies {
     implementation deps.amplitude
     implementation deps.ads_mobs
 //    implementation deps.chart
+    implementation 'com.android.support:multidex:1.0.1'
 
 }
 

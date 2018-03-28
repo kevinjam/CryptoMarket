@@ -1,6 +1,8 @@
 package com.thinkdevs.cryptomarket.utils
 
 import android.app.Application
+import android.content.Context
+import android.support.multidex.MultiDex
 import android.support.v7.app.AppCompatDelegate
 import android.util.Log
 import com.amplitude.api.Amplitude
@@ -16,6 +18,11 @@ import com.thinkdevs.cryptomarket.constant.AMPLITUTDE_KEY
  */
 class App :Application() {
 	
+	override fun attachBaseContext(base: Context?) {
+		super.attachBaseContext(base)
+		MultiDex.install(this)
+	}
+	
 	
 	companion object {
 		lateinit var pref: SharedPref
@@ -28,7 +35,6 @@ class App :Application() {
 	override fun onCreate() {
 		pref = SharedPref(applicationContext)
 		super.onCreate()
-		
 		if(BuildConfig.DEBUG){
 			log("==============DEBUG MODE================")
 			//Production
@@ -36,8 +42,9 @@ class App :Application() {
 		
 		}else{
 			//test
-			trackbugs()
+		
 			log("==============PRODUCTION MODE=============")
+			trackbugs()
 			MobileAds.initialize(this, ADMOB_ID_BANNER)
 			Amplitude.getInstance().initialize(this, AMPLITUTDE_KEY).enableForegroundTracking(this)
 			

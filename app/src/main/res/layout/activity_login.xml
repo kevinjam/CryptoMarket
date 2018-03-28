@@ -18,8 +18,8 @@
 
 
         <ImageView
-            android:layout_width="@dimen/space100"
-            android:layout_height="@dimen/space100"
+            android:layout_width="@dimen/space50"
+            android:layout_height="@dimen/space50"
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="30dp"
             android:layout_marginTop="@dimen/space20"
@@ -35,7 +35,7 @@
                 android:id="@+id/email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/email_addess"
+                android:hint="@string/email"
                 android:inputType="textEmailAddress"
                 android:textColor="@android:color/black"
                 android:textColorHint="@android:color/black" />
@@ -73,6 +73,7 @@
               android:background="@color/colorAccent"
               android:text="facebook"
               android:layout_weight="1"
+              android:visibility="gone"
               android:textColor="@android:color/white" />
 
           <Button
