@@ -6,6 +6,9 @@ Crypto Market
 
 Crypto Market Cap gives you quick and easy access to cryptocurrency prices, details.
 
+<a href='https://Ko-fi.com/R5R1BX7C' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://az743702.vo.msecnd.net/cdn/kofi1.png?v=f' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a> 
+
+
 Available on Google Play Store.
 <p align="left">
 <a href="https://play.google.com/store/apps/details?id=com.thinkdevs.cryptomarket">
