@@ -3,8 +3,7 @@ package com.thinkdevs.cryptomarket.adapter
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
-import android.support.constraint.ConstraintLayout
-import android.support.v7.widget.RecyclerView
+import androidx.constraintlayout.widget.ConstraintLayout
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,8 +17,8 @@ import com.thinkdevs.cryptomarket.model.CryptoModel
 /**
  * Created by kevinjanvier on 19/03/2018.
  */
-class BitCoinAdapter(var context: Context, var list: ArrayList<CryptoModel>) : RecyclerView.Adapter<BitCoinAdapter.ViewHolder>() {
-	override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ViewHolder {
+class BitCoinAdapter(var context: Context, var list: ArrayList<CryptoModel>) : androidx.recyclerview.widget.RecyclerView.Adapter<BitCoinAdapter.ViewHolder>() {
+	override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
 		
 		val view = LayoutInflater.from(parent!!.context).inflate(R.layout.item_coin, parent, false)
 		return ViewHolder(view)
@@ -29,11 +28,11 @@ class BitCoinAdapter(var context: Context, var list: ArrayList<CryptoModel>) : R
 		return list.count()
 	}
 	
-	override fun onBindViewHolder(holder: ViewHolder?, position: Int) {
+	override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 		holder!!.bindview(list[position], context)
 	}
 	
-	inner class ViewHolder(itemView: View?) : RecyclerView.ViewHolder(itemView) {
+	inner class ViewHolder(itemView: View?) : androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView!!) {
 		
 		val coinName = itemView!!.findViewById<TextView>(R.id.coinName)
 		val marketcoin = itemView!!.findViewById<TextView>(R.id.marketcoin)

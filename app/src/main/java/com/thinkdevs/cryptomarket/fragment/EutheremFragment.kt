@@ -2,7 +2,7 @@ package com.thinkdevs.cryptomarket.fragment
 
 
 import android.os.Bundle
-import android.support.v4.app.Fragment
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,13 +19,13 @@ import kotlinx.android.synthetic.main.fragment_news.*
 /**
  * A simple [Fragment] subclass.
  */
-class EutheremFragment : Fragment() {
+class EutheremFragment : androidx.fragment.app.Fragment() {
 	var composite: CompositeDisposable? = null
 	
 	var arraylist = ArrayList<Crypto>()
 	
 	
-	override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
+	override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
 							  savedInstanceState: Bundle?): View? {
 		// Inflate the layout for this fragment
 		val view = inflater!!.inflate(R.layout.fragment_news, container, false)
@@ -80,7 +80,7 @@ class EutheremFragment : Fragment() {
 			update.text = "Last Updated :${model.last_updated}"
 			when {
 				model.symbol == "LTC" -> {
-					val resouldId = context.resources.getIdentifier("ic_ethereum", "drawable", activity.packageName)
+					val resouldId = context!!.resources.getIdentifier("ic_ethereum", "drawable", activity!!.packageName)
 					coinImage.setImageResource(resouldId)
 				}
 			}

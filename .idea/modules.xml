@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/CryptoMarket.iml" filepath="$PROJECT_DIR$/CryptoMarket.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/CryptoMarket-app.iml" filepath="$PROJECT_DIR$/app/CryptoMarket-app.iml" group="CryptoMarket/app" />
+      <module fileurl="file://$PROJECT_DIR$/android-CryptoMarket.iml" filepath="$PROJECT_DIR$/android-CryptoMarket.iml" group="CryptoMarket" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

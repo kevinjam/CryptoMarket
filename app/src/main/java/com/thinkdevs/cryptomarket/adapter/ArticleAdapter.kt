@@ -2,8 +2,8 @@ package com.thinkdevs.cryptomarket.adapter
 
 import android.content.Context
 import android.content.Intent
-import android.support.constraint.ConstraintLayout
-import android.support.v7.widget.RecyclerView
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,11 +19,11 @@ import com.thinkdevs.cryptomarket.utils.CryptCurrency
 /**
  * Created by kevinjanvier on 21/03/2018.
  */
-class ArticleAdapter(var context:Context, var list:ArrayList<Articles>):RecyclerView.Adapter<ArticleAdapter.ViewHolder>() {
+class ArticleAdapter(var context:Context, var list:ArrayList<Articles>): RecyclerView.Adapter<ArticleAdapter.ViewHolder>() {
 	
-	override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ViewHolder {
+	override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
 		
-		val view = LayoutInflater.from(parent!!.context).inflate(R.layout.item_news, parent, false)
+		val view = LayoutInflater.from(parent.context).inflate(R.layout.item_news, parent, false)
 		return ViewHolder(view)
 	}
 	
@@ -31,11 +31,11 @@ class ArticleAdapter(var context:Context, var list:ArrayList<Articles>):Recycler
 		return list.count()
 	}
 	
-	override fun onBindViewHolder(holder: ViewHolder?, position: Int) {
+	override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 		holder!!.bindnews(context,list[position])
 	}
 	
-	inner class ViewHolder(itemView: View?) : RecyclerView.ViewHolder(itemView){
+	inner class ViewHolder(itemView: View?) : RecyclerView.ViewHolder(itemView!!){
 		var newsTitle = itemView!!.findViewById<TextView>(R.id.news_title_sub)
 		var newsDescp = itemView!!.findViewById<TextView>(R.id.news_description)
 		var newsDate = itemView!!.findViewById<TextView>(R.id.news_date)

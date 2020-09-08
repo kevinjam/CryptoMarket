@@ -2,8 +2,8 @@ package com.thinkdevs.cryptomarket.utils
 
 import android.app.Application
 import android.content.Context
-import android.support.multidex.MultiDex
-import android.support.v7.app.AppCompatDelegate
+import androidx.multidex.MultiDex
+import androidx.appcompat.app.AppCompatDelegate
 import android.util.Log
 import com.amplitude.api.Amplitude
 import com.google.android.gms.ads.MobileAds

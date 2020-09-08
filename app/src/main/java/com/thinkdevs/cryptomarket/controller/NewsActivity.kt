@@ -1,9 +1,9 @@
 package com.thinkdevs.cryptomarket.controller
 
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import android.util.Log
 import android.view.View
 import com.thinkdevs.cryptomarket.R
@@ -19,7 +19,7 @@ import kotlinx.android.synthetic.main.toolbar.view.*
 
 class NewsActivity : AppCompatActivity() {
 	var composit: CompositeDisposable? = null
-	lateinit var recyclerView: RecyclerView
+	lateinit var recyclerView: androidx.recyclerview.widget.RecyclerView
 	
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
@@ -30,7 +30,7 @@ class NewsActivity : AppCompatActivity() {
 		news_toolbar.coinName.text = getString(R.string.latest_news)
 		
 		recyclerView = findViewById(R.id.recyclerView)
-		val layoutManager =LinearLayoutManager(this)
+		val layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this)
 		recyclerView.layoutManager = layoutManager
 		composit = CompositeDisposable()
 		

@@ -1,9 +1,9 @@
 package com.thinkdevs.cryptomarket.controller
 
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import android.util.Log
 import android.view.View
 import android.widget.AdapterView
@@ -38,7 +38,7 @@ class FullListActivity : AppCompatActivity() {
 		full_list_toolbar.coinName.text =getString(R.string.market_capitalisation)
 		full_list_toolbar.nav_share.visibility = View.GONE
 		recyclerView3.setHasFixedSize(true)
-		val layoutManager : RecyclerView.LayoutManager = LinearLayoutManager(this@FullListActivity)
+		val layoutManager : androidx.recyclerview.widget.RecyclerView.LayoutManager = androidx.recyclerview.widget.LinearLayoutManager(this@FullListActivity)
 		recyclerView3.layoutManager = layoutManager
 		
 		getfulllist()

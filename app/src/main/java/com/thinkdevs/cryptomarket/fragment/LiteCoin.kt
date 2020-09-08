@@ -2,7 +2,7 @@ package com.thinkdevs.cryptomarket.fragment
 
 
 import android.os.Bundle
-import android.support.v4.app.Fragment
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,13 +20,13 @@ import kotlinx.android.synthetic.main.fragment_news.*
 /**
  * A simple [Fragment] subclass.
  */
-class LiteCoin : Fragment() {
+class LiteCoin : androidx.fragment.app.Fragment() {
 	lateinit var no_internet:TextView
 	
 	var composite: CompositeDisposable? = null
 	
 	
-	override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
+	override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
 							  savedInstanceState: Bundle?): View? {
 		// Inflate the layout for this fragment
 		val view = inflater!!.inflate(R.layout.fragment_news, container, false)
@@ -68,7 +68,7 @@ class LiteCoin : Fragment() {
 			
 			when {
 				model.symbol == "LTC" -> {
-					val resouldId = context.resources.getIdentifier("ic_litecoin", "drawable", activity.packageName)
+					val resouldId = context!!.resources.getIdentifier("ic_litecoin", "drawable", activity!!.packageName)
 					coinImage.setImageResource(resouldId)
 				}
 			}

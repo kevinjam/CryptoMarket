@@ -2,9 +2,9 @@ package com.thinkdevs.cryptomarket.fragment
 
 
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import android.util.Log
 
 import android.view.LayoutInflater
@@ -26,21 +26,21 @@ import io.reactivex.schedulers.Schedulers
 /**
  * A simple [Fragment] subclass.
  */
-class BitCoin : Fragment() {
-	lateinit var bitcoin_rec: RecyclerView
+class BitCoin : androidx.fragment.app.Fragment() {
+	lateinit var bitcoin_rec: androidx.recyclerview.widget.RecyclerView
 	lateinit var progress:ProgressBar
 	var composite: CompositeDisposable?=null
 	lateinit var no_Internet :TextView
-	override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+	override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 		val view = inflater!!.inflate(R.layout.bit_coin, container, false)
 		bitcoin_rec = view.findViewById(R.id.bitcoin_rec)
 		progress = view.findViewById(R.id.progress)
 		no_Internet = view.findViewById(R.id.internet_error)
 
 		bitcoin_rec.setHasFixedSize(true)
-		val layoutManager : RecyclerView.LayoutManager = LinearLayoutManager(activity)
+		val layoutManager : androidx.recyclerview.widget.RecyclerView.LayoutManager = androidx.recyclerview.widget.LinearLayoutManager(activity)
 		bitcoin_rec.layoutManager = layoutManager
-		bitcoin_rec.addItemDecoration(SimpleDividerItemDecoration(activity))
+		bitcoin_rec.addItemDecoration(SimpleDividerItemDecoration(activity!!))
 		
 		composite = CompositeDisposable()
 		getBitcoins()
@@ -69,7 +69,7 @@ class BitCoin : Fragment() {
 	}
 	
 	private fun handlResponse(list:ArrayList<CryptoModel>) {
-		val adapter = BitCoinAdapter(activity, list)
+		val adapter = activity?.let { BitCoinAdapter(it, list) }
 		bitcoin_rec.adapter = adapter
 	
 	}
